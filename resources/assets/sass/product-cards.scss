@@ -1,0 +1,175 @@
+.product-card {
+	display: block;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .2);
+	color: inherit;
+	position: relative;
+	margin-bottom: 30px;
+	.product-img {
+		background:#009fd2;
+		overflow: hidden;
+		min-height: 195px;
+		@include max-width(1200px){
+			min-height: 155px;
+		}
+		img {
+			width: 100%;
+		}
+	}
+
+	.from-to {
+		position: absolute;
+		left: 0;
+		bottom: 57px;
+		width: 100%;
+		margin: 10px 0;
+		padding: 0 8px;
+		color: #fff;
+		font-weight: normal;
+		font-size: 13px;
+		li {
+			float: left;
+    		width: 50%;
+			span {
+				display: inline-block;
+				width: 95%;
+				vertical-align: middle;
+				@include text-overflow();
+				img {
+					width: 17px;
+					margin-right: 3px;
+				}
+			}
+			&:last-child {
+				text-align: right;
+			}
+		}
+	}
+
+	.charter-name {
+		position: absolute;
+		left: 0;
+		bottom: 57px;
+		width: 100%;
+		margin: 10px 0;
+		padding: 0 8px;
+		color: #fff;
+		font-weight: normal;
+		font-size: 13px;
+	}
+
+	.product-info {
+		position: relative;
+		table {
+			width: calc(100% - 48px);
+			height: 57px;
+			td {
+				line-height: 1.2;
+				&.data-cell {
+					width: 100px;
+					text-align: center;
+					position: relative;
+					&:after {
+						content: "";
+						background: #F0F0F0;
+						@include size(1px, 45px);
+						position: absolute;
+						right: -1px;
+						top: 6px;
+					}
+					> .data {
+					    text-align: left;
+					    display: inline-block;
+						margin: 0 8px;
+					    span {
+							display: block;
+							@include max-width($screen-lg){
+								font-size: 12px;
+							}
+							&.waiting-for {
+								font-size: 10px;
+							}
+						}
+						small {
+							font-size: 10px;
+							font-weight: 400;
+							color: #07A1D2;
+						}
+					}
+					&.seats {
+						width: 80px;
+					}
+				}
+				&.btn-cell {
+					width: 42px;
+					color: #ffffff;
+					text-align: center;
+				}
+			}
+		}
+		.btn-angle {
+			@include size(48px, 57px);
+			background: #FFC133;
+			padding: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+			overflow: hidden;
+			color: #ffffff;
+			span {
+			    width: 48px;
+			    display: block;
+			    position: relative;
+			    transform: translateX(0px);
+			    transition: .2s all ease-in-out;
+				&:after {
+					content: "\e649";
+					@include ti;
+					width: 60px;
+				    display: inline-block;
+				    position: absolute;
+				}
+			}
+		}
+		&.charter-flight {
+			table {
+				width: calc(100% - 153px);
+			}
+			.btn-request {
+				@include size(153px, 57px);
+				background: #FFC133;
+				padding: 0;
+				position: absolute;
+				right: 0;
+				top: 0;
+				overflow: hidden;
+				color: #ffffff;
+				font-weight: 600;
+			}
+		}
+	}
+	// Hover .product-card
+	&:hover {
+		box-shadow: 0 1px 12px 0 rgba(0, 0, 0, .2);
+		.product-info .btn-angle, .product-info .btn-request {
+			background: #DEAB38;
+			span {
+				transform: translateX(-36px);
+			}
+		}
+	}
+}
+
+.product-badge {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(224, 177, 65, 0.8);
+	color: #ffffff;
+	padding: 10px 10px 7px;
+	line-height: 1.2;
+	.days {font-weight: 600;}
+	.until {
+		font-size: 10px;
+		font-weight: normal;
+	}
+}

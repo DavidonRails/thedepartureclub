@@ -1,0 +1,62 @@
+<div class="page-header clearfix">
+	<p class="lead">
+		<div class="form-group">
+			<div class="form-group col-xs-6">
+				<input type="text" class="form-control" ng-model="sort.from" data-max-date="{{untilDate}}" placeholder="From" bs-datepicker>
+			</div>
+			<div class="form-group col-xs-6">
+				<input type="text" class="form-control" ng-model="sort.to" data-min-date="{{fromDate}}" placeholder="To" bs-datepicker>
+			</div>
+		</div>
+	</p>
+</div>
+<div class="card">
+	<div class="table-responsive white">
+		<h3 class="table-title p-20">Bookings</h3>
+		<table class="table table-full table-full-small">
+			<thead>
+			<tr>
+				<td>Aircraft</td>
+				<td>Route</td>
+				<td>Date</td>
+				<td>PAX</td>
+				<td>Price</td>
+				<td>Status</td>
+				<td class="text-right">Options</td>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="booking in bookings.list.data">
+				<td>{{::booking.aircraft_name}}</td>
+				<td>
+					Origin: <b>{{::booking.flight_origin}}</b>
+					<br>
+					Destination: <b>{{::booking.flight_destination}}</b>
+				</td>
+				<td>{{::booking.departure_date}}</td>
+				<td>{{::booking.aircraft_seats}}</td>
+				<td>${{::booking.flight_price}}</td>
+				<td>
+					<span ng-if="booking.status == 'Approved'">Approved</span>
+					<span ng-if="booking.status == 'Pending'">Pending</span>
+					<span ng-if="booking.status == 'Rejected'">Rejected</span>
+				</td>
+
+				<td class="text-right">
+					<button class="btn btn-default" ng-click="infoModal(booking.booking_id)" ng-if="booking.status == 'Approved'">Info</button>
+					<button class="btn btn-default" ng-click="approveModal(booking.booking_id)" ng-if="booking.status == 'Pending'">Approval</button>
+					<span ng-if="booking.status == 'Rejected'">None</span>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+		<nav>
+			<ul class="pagination">
+				<li ng-class="{'disabled': !bookings.list.pagination.prev_page}" class="paginate_button"><a href="javascript:void(0)" ng-click="paginate('prev_page');"><span>&laquo;</span></a></li>
+				<li ng-class="{'disabled': !bookings.list.pagination.next_page}" class="paginate_button"><a href="javascript:void(0)" ng-click="paginate('next_page');"><span>&raquo;</span></a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+<booking-approve></booking-approve>
+<booking-info></booking-info>

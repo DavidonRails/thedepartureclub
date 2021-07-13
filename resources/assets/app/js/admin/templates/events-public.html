@@ -1,0 +1,52 @@
+<div class="page-header clearfix">
+	<p class="lead">
+		<div class="col-md-12 text-right">
+			<button class="btn btn-primary" ng-click="add();">Add Event</button>
+		</div>
+	</p>
+</div>
+<div class="card">
+	<div class="table-responsive white">
+		<h3 class="table-title p-20">Events</h3>
+		<table class="table table-full table-full-small">
+			<thead>
+			<tr>
+				<td>Package Name</td>
+				<td>Price</td> 
+				<td>Status</td> 
+				<td class="text-right">Options</td>
+			</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="package in packages.list.data">
+					<td>{{::package.name}}</td>
+					<td>{{::package.price | currency }}</td>
+					<td>
+						<span ng-if="::package.status == 0">Pending</span>
+						<span ng-if="::package.status == 1">Active</span>
+						<span ng-if="::package.status == 2">Canceled</span>
+						<span ng-if="::package.status == 3">Booked</span>
+						<span ng-if="::package.status == 4">Expired</span>
+						<span ng-if="::package.status == null">Active</span>	
+					</td> 
+					<td class="text-right">
+						<div>
+							<button ng-if="package.status == 0 || package.status == 1" class="btn btn-default" ng-click="edit(package.package_id)"><i class="fa fa-pencil-square-o"></i></button>
+							<button class="btn btn-default" ng-click="delete(package.package_id)"><i class="fa fa-trash-o"></i></button>
+						</div>
+						<div ng-if="package.status == 2 || package.status == 3">
+							<button class="btn btn-default" ng-click="alert('test')"><i class="fa fa-info"></i></button>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<nav>
+			<ul class="pagination">
+				<li ng-class="{'disabled': !packages.list.pagination.prev_page}" class="paginate_button"><a href="javascript:void(0)" ng-click="paginate('prev_page');"><span>&laquo;</span></a></li>
+				<li ng-class="{'disabled': !packages.list.pagination.next_page}" class="paginate_button"><a href="javascript:void(0)" ng-click="paginate('next_page');"><span>&raquo;</span></a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+<pack></pack>

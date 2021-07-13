@@ -1,0 +1,54 @@
+<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" ng-show="title">
+				<button type="button" class="close" aria-label="Close" ng-click="$hide()"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" ng-bind="title" style="text-align: center"></h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal">
+					<div class="row" >
+						<div class="col-md-offset-1 col-md-10">
+							<div class="form-group">
+								<input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" placeholder="Email" ng-model="form.email" style="">
+								<span class="form-control-ico ti-email"></span>
+								<span ng-message-exp="errors.email" class="help-inline ng-binding" ng-bind="errors.email"></span>
+							</div>
+						</div>
+						<div class="col-md-offset-1 col-md-10">
+							<div class="form-group">
+								<input name="first_name" type="text" placeholder="First name" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="form.first_name">
+								<span class="form-control-ico ti-user"></span>
+								<span ng-message-exp="errors.first_name" class="help-inline ng-binding" ng-bind="errors.first_name"></span>
+							</div>
+						</div>
+						<div class="col-md-offset-1 col-md-10">
+							<div class="form-group">
+								<input type="text" placeholder="Last name" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="form.last_name">
+								<span class="form-control-ico ti-user"></span>
+								<span ng-message-exp="errors.last_name" class="help-inline ng-binding" ng-bind="errors.last_name"></span>
+							</div>
+						</div>
+						<div class="col-md-offset-1 col-md-10">
+							<div class="form-group">
+								<input type="password" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Password" ng-model="form.password">
+								<span class="form-control-ico ti-lock"></span>
+								<span ng-message-exp="errors.password" class="help-inline ng-binding" ng-bind="errors.password"></span>
+							</div>
+						</div>
+						<div class="col-md-offset-1 col-md-10">
+							<span ng-message-exp="errors.create_user" class="help-inline" ng-bind="errors.create_user"></span>
+						</div>
+						</div>
+					</form>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" ng-click="action(method, form)">
+					Insert
+				</button>
+				<button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,33 @@
+<div class="page-header clearfix">
+	<p class="lead">
+		<div class="text-right">
+			<button class="btn btn-primary"  ng-click="notificationModal()">Send notification</button>
+		</div>
+	</p>
+</div>
+<div class="card">
+	<div class="table-responsive white">
+		<h3 class="table-title p-20">Notifications</h3>
+		<table class="table table-full table-full-small">
+			<thead>
+			<tr>
+				<td>Date</td>
+				<td>Message</td>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="notification in notifications.list.data">
+				<td>{{::notification.created_at | dateToISO | date:'medium'}}</td>
+				<td>{{::notification.message}}</td>
+			</tr>
+			</tbody>
+		</table>
+		<nav>
+			<ul class="pagination">
+				<li ng-class="{'disabled': !notifications.list.pagination.prev_page}" class="paginate_button"><a href="javascript:void(0)" ng-click="paginate('prev_page');"><span>&laquo;</span></a></li>
+				<li ng-class="{'disabled': !notifications.list.pagination.next_page}" class="paginate_button"><a href="javascript:void(0)" ng-click="paginate('next_page');"><span>&raquo;</span></a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+<flights></flights>

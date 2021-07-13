@@ -1,0 +1,43 @@
+<div class="page-header clearfix">
+	<div class="lead">
+		<button class="btn btn-primary pull-right" ng-click="aircrafts.add();">Add aircraft</button>
+	</div>
+</div>
+<div class="card">
+	<div class="table-responsive white">
+		<h3 class="table-title p-20">Aircrafts</h3>
+		<table class="table table-full table-full-small">
+			<thead>
+				<tr>
+					<td>Name</td>
+					<td>Seats</td>
+					<td>Manufacturer</td>
+					<td>Default image</td>
+					<td class="text-right">Options</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="aircraft in aircrafts.list.data">
+					<td>{{::aircraft.name}}</td>
+					<td>{{::aircraft.seats}}</td>
+					<td>{{::aircraft.manufacturer}}</td>
+					<td>
+						<img ng-src="{{aircraft.image_path}}{{aircraft.image_name}}" style="max-height: 100px; width: auto">
+					</td>
+					<td class="text-right">
+						<a class="btn btn-default" href="admin/#/aircrafts/images/{{::aircraft.aircraft_id}}"><i class="fa fa-picture-o"></i></a>
+						<button class="btn btn-default" ng-click="edit(aircraft.aircraft_id)"><i class="fa fa-pencil-square-o"></i></button>
+						<button class="btn btn-default" ng-click="delete(aircraft.aircraft_id)"><i class="fa fa-trash-o"></i></button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<nav>
+			<ul class="pagination">
+				<li ng-class="{'disabled': !aircrafts.list.pagination.prev_page}"><a href="javascript:void(0)" ng-click="paginate('prev_page');"><span>&laquo;</span></a></li>
+				<li ng-class="{'disabled': !aircrafts.list.pagination.next_page}"><a href="javascript:void(0)" ng-click="paginate('next_page');"><span>&raquo;</span></a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+<aircrafts></aircrafts>

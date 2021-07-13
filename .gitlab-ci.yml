@@ -1,0 +1,19 @@
+production:
+    only:
+      - master
+    script:
+      - mv .env.production .env
+      - chmod -R 777 storage
+      - chmod -R 777 public/data/
+      - composer install --no-dev --no-progress --optimize-autoloader --quiet --no-interaction
+      - npm install
+      - node_modules/.bin/bower install
+      - node_modules/.bin/gulp build
+      - rsync -a . /var/www/thedepartureclub/ --exclude='node_modules' --exclude='storage/debugbar' --exclude='storage/debugbar'
+      - php /var/www/thedepartureclub/artisan down
+      - php /var/www/thedepartureclub/artisan cache:clear
+      - php /var/www/thedepartureclub/artisan view:clear
+      - php /var/www/thedepartureclub/artisan migrate --force
+      - php /var/www/thedepartureclub/artisan db:seed --class UserSeeder --force
+      - php /var/www/thedepartureclub/artisan queue:restart
+      - php /var/www/thedepartureclub/artisan up

@@ -1,0 +1,223 @@
+<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" ng-show="title">
+				<button type="button" class="close" aria-label="Close" ng-click="$hide()"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" ng-bind="title"></h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal">
+
+ 					<div class="row">
+
+
+	    				    <div class="form-group" ng-class="{'has-error has-feedback': errors.origin_airport}">
+						    <label class="col-md-4 control-label text-right">Origin airport</label>
+						    <div class="col-md-6">
+							    <input type="text" class="form-control input-md" ng-model="form.origin_airport" placeholder="Enter ICAO code">
+							    <span ng-message-exp="errors.origin_airport" class="help-block has-error error-msg" ng-bind="errors.origin_airport"></span>
+						    </div>
+					    </div>
+					    <div class="form-group" ng-if="form.origin_airport_data.location">
+						    <label class="col-md-4 control-label text-right">Origin location</label>
+						    <div class="col-md-6">
+							    <div class="form-control-static">{{form.origin_airport_data.location}}</div>
+						    </div>
+					    </div>
+
+
+					    <div class="form-group" ng-class="{'has-error has-feedback': errors.destination_airport}">
+						    <label class="col-md-4 control-label text-right">Destination airport</label>
+						    <div class="col-md-6">
+							    <input type="text" class="form-control input-md" ng-model="form.destination_airport" placeholder="Enter ICAO code">
+							    <span ng-message-exp="errors.destination_airport" class="help-block has-error error-msg" ng-bind="errors.destination_airport"></span>
+						    </div>
+					    </div>
+					    <div class="form-group" ng-if="form.destination_airport_data.location">
+						    <label class="col-md-4 control-label text-right">Destination location</label>
+						    <div class="col-md-6">
+							    <div class="form-control-static">{{form.destination_airport_data.location}}</div>
+						    </div>
+					    </div>
+
+					    <div class="form-group" ng-class="{'has-error has-feedback': errors.date}">
+						    <label class="col-md-4 control-label text-right">Date</label>
+						    <div class="col-md-6">
+							    <div class="row">
+								    <div class="col-md-4 text-center">
+									    <label>YYYY</label>
+									    <br>
+									    <input type="text" class="form-control input-md text-center" maxlength="4" ng-model="form.date.year">
+								    </div>
+								    <div class="col-md-3 text-center">
+									    <label>MM</label>
+									    <br>
+									    <input type="text" class="form-control input-md text-center" maxlength="2" ng-model="form.date.month">
+								    </div>
+								    <div class="col-md-3 text-center">
+									    <label>DD</label>
+									    <br>
+									    <input type="text" class="form-control input-md text-center" maxlength="2" ng-model="form.date.day">
+								    </div>
+							    </div>
+							    <div class="row">
+								    <span ng-message-exp="errors.date" class="help-block has-error error-msg" ng-bind="errors.date"></span>
+							    </div>
+						    </div>
+					    </div>
+
+					    <div class="form-group" ng-class="{'has-error has-feedback': errors.period_from}">
+						    <label class="col-md-4 control-label text-right">Period from</label>
+						    <div class="col-md-6">
+							    <div class="row">
+								    <div class="col-md-4 text-center">
+									    <label>HH</label>
+									    <br>
+									    <input type="text" class="form-control input-md text-center" maxlength="2" ng-model="form.period_from.hours">
+								    </div>
+								    <div class="col-md-4 text-center">
+									    <label>MM</label>
+									    <br>
+									    <input type="text" class="form-control input-md text-center" maxlength="2" ng-model="form.period_from.minutes">
+								    </div>
+							    </div>
+							    <div class="row">
+								    <span ng-message-exp="errors.period_from" class="help-block has-error error-msg" ng-bind="errors.period_from"></span>
+							    </div>
+						    </div>
+					    </div>
+
+					    <div class="form-group" ng-class="{'has-error has-feedback': errors.period_to}">
+						    <label class="col-md-4 control-label text-right">Period to</label>
+						    <div class="col-md-6">
+							    <div class="row">
+								    <div class="col-md-4 text-center">
+									    <label>HH</label>
+									    <br>
+									    <input type="text" class="form-control input-md text-center" maxlength="2" ng-model="form.period_to.hours">
+								    </div>
+								    <div class="col-md-4 text-center">
+									    <label>MM</label>
+									    <br>
+									    <input type="text" class="form-control input-md text-center" maxlength="2" ng-model="form.period_to.minutes">
+								    </div>
+							    </div>
+							    <div class="row">
+								    <span ng-message-exp="errors.period_to" class="help-block has-error error-msg" ng-bind="errors.period_to"></span>
+							    </div>
+						    </div>
+					    </div>
+
+					    <!--<div class="form-group" ng-class="{'has-error has-feedback': errors.date}">-->
+						    <!--<label class="col-md-4 control-label text-right">Date</label>-->
+						    <!--<div class="col-md-6">-->
+							    <!--<input type="text" class="form-control input-md" bs-datepicker ng-model="form.date" data-autoclose="1" data-timezone="UTC" data-min-date="{{min_date}}">-->
+							    <!--<span ng-message-exp="errors.date" class="help-block has-error error-msg" ng-bind="errors.date"></span>-->
+						    <!--</div>-->
+					    <!--</div>-->
+<!---->
+					    <!--<div class="form-group" ng-class="{'has-error has-feedback': errors.period_from}">-->
+						    <!--<label class="col-md-4 control-label text-right">Period from</label>-->
+						    <!--<div class="col-md-6">-->
+							    <!--<input type="text" class="form-control input-md" ng-model="form.period_from" data-time-type="string" data-time-format="HH:mm" data-autoclose="1" bs-timepicker data-time-type="string" data-length="5" data-arrow-behavior="picker" data-min-time="{{min_time}}">-->
+							    <!--<span ng-message-exp="errors.period_from" class="help-block has-error error-msg" ng-bind="errors.period_from"></span>-->
+						    <!--</div>-->
+					    <!--</div>-->
+<!---->
+<!---->
+<!---->
+					    <!--<div class="form-group" ng-class="{'has-error has-feedback': errors.period_to}">-->
+						    <!--<label class="col-md-4 control-label text-right">Period to</label>-->
+						    <!--<div class="col-md-6">-->
+							    <!--<input type="text" class="form-control input-md" ng-model="form.period_to" data-time-type="string" data-time-format="HH:mm" data-autoclose="1" bs-timepicker data-min-time="{{form.period_from}}" data-length="5" data-max-time="{{time_max}}">-->
+							    <!--<span ng-message-exp="errors.period_to" class="help-block has-error error-msg" ng-bind="errors.period_to"></span>-->
+						    <!--</div>-->
+					    <!--</div>-->
+
+
+
+					    <div class="form-group" ng-class="{'has-error has-feedback': errors.price}">
+						    <label class="col-md-4 control-label text-right">Price</label>
+						    <div class="col-md-6">
+							    <input type="number" class="form-control input-md" ng-model="form.price">
+							    <span ng-message-exp="errors.price" class="help-block has-error error-msg" ng-bind="errors.price"></span>
+						    </div>
+					    </div>
+
+					    <div class="form-group" ng-class="{'has-error has-feedback': errors.status}" ng-if="method == 'edit'">
+
+						    <label class="col-md-4 control-label text-right">Status</label>
+						    <div class="col-md-6">
+							    <select class="form-control" ng-model="form.status" ng-options="status.val for status in options.modal.status"></select>
+						    </div>
+
+					    </div>
+
+					    <div class="form-group" ng-class="{'has-error has-feedback': errors.seats}">
+						    <label class="col-md-4 control-label text-right">Seats</label>
+						    <div class="col-md-6">
+							    <input type="number" class="form-control input-md" ng-model="form.seats" min="1">
+							    <span ng-message-exp="errors.seats" class="help-block has-error error-msg" ng-bind="errors.seats"></span>
+						    </div>
+					    </div>
+
+					    <div class="form-group" list-aircrafts ng-class="{'has-error has-feedback': errors.aircraft_id}">
+						    <label class="col-md-4 control-label text-right">Aircraft</label>
+						    <div class="col-md-6">
+							    <ui-select ng-model="form.aircraft" theme="select2" on-select="clearCustomImage()">
+								    <ui-select-match placeholder="Select or search a plane in the list...">{{$select.selected.name}}</ui-select-match>
+								    <ui-select-choices repeat="data in aircrafts"  >
+									    <div ng-bind-html="data.name | highlight: $select.search"></div>
+								    </ui-select-choices>
+							    </ui-select>
+							    <span ng-message-exp="errors.aircraft_id" class="help-block has-error error-msg" ng-bind="errors.aircraft_id"></span>
+						    </div>
+					    </div>
+
+					    <div class="form-group">
+						    <label class="col-md-4 control-label text-right">Aircraft custom image</label>
+						    <div class="col-md-6">
+							    <div class="btn btn-primary"
+							         ngf-select="customImage()"
+							         ng-model="form.aircraft_custom_image"
+							         name="file"
+							         ngf-pattern="'.jpg'"
+							         ngf-accept="image/jpg"
+							         ngf-max-size="2MB"
+							    >Select</div>
+							    <span class="help-inline">accept only jpg</span>
+						    </div>
+					    </div>
+
+					    <div class="form-group">
+						    <label class="col-md-4 control-label text-right">Image preview</label>
+						    <div class="col-md-6">
+							    <img ng-if="image_preview" ng-src="{{image_preview}}" style="max-height: 100px; width: auto">
+							    <img ngf-src="image_preview_custom" style="max-height: 100px; width: auto">
+							    <div ng-if="!image_preview && !image_preview_custom" class="form-control-static">Select aircraft</div>
+						    </div>
+					    </div>
+
+					    <div class="form-group" ng-if="method == 'insert'" ng-class="{'has-error has-feedback': errors.note}">
+						    <label class="col-md-4 control-label text-right">Note</label>
+						    <div class="col-md-6">
+							    <textarea class="form-control vertical" ng-model="form.note"></textarea>
+						    </div>
+					    </div>
+
+				    </div>
+
+
+				</form>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" ng-click="action(method, form)">
+					<span ng-if="method == 'insert'">Insert</span>
+					<span ng-if="method == 'edit'">Edit</span>
+				</button>
+				<button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

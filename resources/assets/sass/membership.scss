@@ -1,0 +1,59 @@
+.membership-widget-right ul {
+  text-align: left;
+  padding-top: 25px;
+}
+.membership-widget-right ul li {
+  position: relative;
+  padding: 5px 5px 5px 30px;
+}
+.membership-widget-right ul li:before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  background: #000;
+}
+.membership-widget {
+  display: table;
+  height: 557px;
+  width: 100%;
+  padding-top: 8rem;
+  width: 48%;
+  max-width: 958px;
+  float: left;
+  margin: 10px;
+}
+.membership-widget-left, .membership-widget-right {
+  display: table-cell;
+  vertical-align: middle;
+}
+.membership-widget-left {
+  background: #d1d2d4;
+  text-align: right;
+}
+.membership-widget-left img{
+  max-width: 570px;
+  width: 100%;
+}
+.membership-widget-right {
+  width: 360px;
+  background: #fff;
+  border: 1px solid #e4e4e4;
+  padding: 55px 60px 75px;
+}
+.membership-widget-right button {
+  margin-top: 40px;
+}
+@media (max-width: 992px) {
+  .membership-widget-left {
+    display: none;
+  }
+
+  .membership-widget-right {
+    display: block;
+    margin: 0px auto;
+  }
+}

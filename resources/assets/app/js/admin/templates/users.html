@@ -1,0 +1,55 @@
+<div class="page-header clearfix">
+	<p class="lead">
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="control-label">Show</label>
+				<select class="form-control" ng-model="filter.status" ng-options="status.val for status in filters.status"></select>
+			</div>
+	        <div class="form-group col-xs-6 text-right">
+				<button class="btn btn-primary" ng-click="add();">Create New User</button>
+			</div>
+		</div>
+	</p>
+</div>
+<div class="card">
+	<div class="table-responsive white">
+		<h3 class="table-title p-20">Users</h3>
+		<table class="table table-full table-full-small">
+			<thead>
+			<tr>
+				<td>First name</td>
+				<td>Last name</td>
+				<td>Email</td>
+				<td>Package</td>
+				<td>Status</td>
+				<td class="text-right">Options</td>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="user in users.list.data">
+				<td>{{::user.first_name}}</td>
+				<td>{{::user.last_name}}</td>
+				<td>{{::user.email}}</td>
+				<td>{{::user.package}}</td>
+				<td>
+					<span ng-if="user.status == 1">Active</span>
+					<span ng-if="user.status == 2">Not confirmed</span>
+					<span ng-if="user.status == 0">Suspended</span>
+				</td>
+				<td class="text-right">
+					<button class="btn btn-default" ng-click="edit(user.user_id)"><i class="glyphicon glyphicon-pencil"></i></button>
+					<button class="btn btn-default" ng-click="info(user.user_id)"><i class="glyphicon glyphicon-info-sign"></i></button>
+					<button class="btn btn-default" ng-click="delete(user.user_id)"><i class="glyphicon glyphicon-remove"></i></button>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+		<nav>
+			<ul class="pagination">
+				<li ng-class="{'disabled': !users.list.pagination.prev_page}" class="paginate_button"><a href="javascript:void(0)" ng-click="paginate('prev_page');"><span>&laquo;</span></a></li>
+				<li ng-class="{'disabled': !users.list.pagination.next_page}" class="paginate_button"><a href="javascript:void(0)" ng-click="paginate('next_page');"><span>&raquo;</span></a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+

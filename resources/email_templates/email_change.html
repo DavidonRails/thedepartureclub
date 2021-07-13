@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>HoboHet</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			font-family: Tahoma, Verdana, sans-serif;
+			font-size: 100%;
+			line-height: 1.6;
+		}
+		body, html {
+			height:100%
+		}
+		.header {
+			height: 70px;
+		}
+		.header > td {
+			border-bottom: 1px solid #F1F1F1;
+		}
+		.header td table {
+			width: 100%;
+			max-width: 550px;
+			margin: 0 auto;
+		}
+		.header td table td {
+			padding-top: 10px;
+		}
+		.header .date {
+			text-align: right;
+			color: #C4C4C4;
+			font-size: 12px;
+		}
+		.footer {
+			background: #FDFDFD;
+			color: #C4C4C4;
+			font-size: 12px;
+		}
+		.footer > td {
+			border-top: 1px solid #F1F1F1;
+		}
+		.footer td table {
+			width: 100%;
+			max-width: 550px;
+			margin: 0 auto;
+			text-align: center;
+			line-height: 1.6;
+		}
+		.footer a {
+			text-decoration: none;
+			color: #C4C4C4;
+		}
+		.footer .privacy td {
+			padding: 10px 0;
+		}
+		.content {
+			padding: 30px 10px;
+		}
+		.content table {
+			color: #C4C4C4;
+			font-size: 16px;
+			width: 100%;
+			max-width: 550px;
+			margin: 0 auto;
+		}
+		.button {
+			background: #FFBB10;
+			height: 40px;
+			line-height: 40px;
+			font-size: 16px;
+			color: #fff;
+			padding: 0 30px;
+			display: inline-block;
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body leftmargin="0" marginheight="0" marginwidth="0" offset="0" topmargin="0">
+<%body%>
+<center>
+	<table border="0" cellpadding="0" cellspacing="0" height="100%" style="height: 100%" width="100%">
+		<tbody>
+		<tr class="header">
+			<td>
+				<table>
+					<tbody>
+					<tr>
+						<td><span class="sg-image" data-imagelibrary="%7B%22width%22%3A0%2C%22height%22%3A0%2C%22alt_text%22%3A%22%22%2C%22alignment%22%3A%22%22%2C%22border%22%3A0%2C%22src%22%3A%22%7B%7Ben%27%29%20.%20%27images/logo.png%27%7D%7D%22%2C%22classes%22%3A%7B%22sg-image%22%3A1%7D%7D"><img alt="" src="{{en') . 'images/logo.png'}}" /></span></td>
+						<td class="date">:DATE_SEND:</td>
+					</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td class="content" valign="top">
+				<table>
+					<tbody>
+					<tr>
+						<td>
+
+							<p>
+								We have received a request to change email
+							</p>
+							<p>
+								Use the link below to approve
+							</p>
+							<p>
+								<a href=":URL:verify/:CONFIRMATION_CODE:" target="_blank" class="button">Approve link</a>
+							</p>
+							<p>
+								Yours HoboJet team
+							</p>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr class="footer">
+			<td>
+				<table>
+					<tbody>
+					<tr>
+						<td class="share">&nbsp;</td>
+					</tr>
+					<tr class="privacy">
+						<td><a href="http://hobojet.com/terms-and-conditions/" target="_blank">TERMS AND CONDITIONS</a></td>
+					</tr>
+					<tr>
+						<td>HoboJet LLC, 15290 N 78th Way Scottsdale, AZ 85260</td>
+					</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</center>
+</body>
+</html>

@@ -1,0 +1,19 @@
+tail -n 60 storage/logs/laravel.log
+
+tail -60  shows last 60 lines
+
+head -60 shows first 60 lines
+-----------------------------------------------
+mysql -u hobo -p thedepartureclub
+
+password: krcimistomak
+
+SHOW DATABASES;
+
+USE thedepartureclub;
+
+SHOW tables;
+
+update billing_packages set stripe_price_id = 'price_1GqZIKAN2ZsYniWaZ6cYv7qe' where package_id=1;
+update billing_packages set stripe_price_id = 'price_1GqZIcAN2ZsYniWag7PkPN8A' where package_id=2;
+

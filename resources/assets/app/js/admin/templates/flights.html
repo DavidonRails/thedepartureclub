@@ -1,0 +1,88 @@
+<div class="page-header clearfix">
+	<p class="lead">
+		<div class="col-md-6">
+			<div class="row">
+
+
+				<div class="form-group col-xs-6">
+					<label class="control-label">Date form</label>
+					<input type="text" class="form-control" ng-model="filter.date_from" placeholder="Select" bs-datepicker>
+				</div>
+				<div class="form-group col-xs-6">
+					<label class="control-label">Date to</label>
+					<input type="text" class="form-control" ng-model="filter.date_to" data-min-date="{{filter.date_from}}" placeholder="Select" bs-datepicker>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label class="control-label">Show</label>
+					<select class="form-control" ng-model="filter.status" ng-options="status.val for status in options.filter.status"></select>
+				</div>
+				<div class="form-group col-xs-6">
+					<label class="control-label">Operator</label>
+					<select class="form-control" ng-model="filter.operator" ng-options="operator.val for operator in options.filter.operators"></select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 text-right">
+			<button class="btn btn-primary" ng-click="flights.importCsv()">Import CSV</button>
+			<button class="btn btn-primary" ng-click="flights.add();">Add flight</button>
+		</div>
+	</p>
+</div>
+<div class="card">
+	<div class="table-responsive white">
+		<h3 class="table-title p-20">Flights</h3>
+		<table class="table table-full table-full-small">
+			<thead>
+			<tr>
+				<td>Date</td>
+				<td>Route</td>
+				<td>Price</td>
+				<td>Status</td>
+				<td>Aircraft</td>
+				<td>Image</td>
+				<td class="text-right">Options</td>
+			</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="flight in flights.list.data">
+					<td>{{::flight.flight_start}}</td>
+					<td>
+						Origin: <b>{{::flight.route_origin}}</b>
+						<br>
+						Destination: <b>{{::flight.route_destination}}</b>
+					</td>
+					<td>{{::flight.price}}</td>
+					<td>
+						<span ng-if="::flight.status == 0">Pending</span>
+						<span ng-if="::flight.status == 1">Active</span>
+						<span ng-if="::flight.status == 2">Canceled</span>
+						<span ng-if="::flight.status == 3">Booked</span>
+						<span ng-if="::flight.status == 4">Expired</span>
+					</td>
+					<td>{{::flight.aircraft_name}}</td>
+					<td>
+						<img ng-src="{{flight.aircraft_image}}" style="max-height: 100px; width: auto">
+					</td>
+					<td class="text-right">
+						<div>
+							<button ng-if="flight.status == 0 || flight.status == 1" class="btn btn-default" ng-click="flights.edit(flight.flight_id)"><i class="fa fa-pencil-square-o"></i></button>
+							<button class="btn btn-default" ng-click="flights.delete(flight.flight_id)"><i class="fa fa-trash-o"></i></button>
+						</div>
+						<div ng-if="flight.status == 2 || flight.status == 3">
+							<button class="btn btn-default" ng-click="alert('test')"><i class="fa fa-info"></i></button>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<nav>
+			<ul class="pagination">
+				<li ng-class="{'disabled': !flights.list.pagination.prev_page}" class="paginate_button"><a href="javascript:void(0)" ng-click="paginate('prev_page');"><span>&laquo;</span></a></li>
+				<li ng-class="{'disabled': !flights.list.pagination.next_page}" class="paginate_button"><a href="javascript:void(0)" ng-click="paginate('next_page');"><span>&raquo;</span></a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+<flights></flights>

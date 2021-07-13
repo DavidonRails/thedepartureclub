@@ -1,0 +1,29 @@
+#!/bin/bash
+
+echo "Running composer";
+
+php composer.phar install -n --no-dev --no-scripts;
+
+echo "Running npm";
+
+npm install;
+
+echo "Running bower";
+
+bower install;
+
+echo "Running gulp build scripts";
+
+gulp build;
+
+echo "Setting chmod";
+
+chmod -R 777 storage;
+
+echo "Running laravel migration"
+
+php artisan migrate --force;
+
+echo "Build done";
+
+

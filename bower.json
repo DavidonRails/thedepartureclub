@@ -1,0 +1,41 @@
+{
+  "name": "hobojet",
+  "version": "0.0.0",
+  "authors": [
+    "Srdjan Mitrovic <srdjan.mitrovic@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "resources/assets/bower_components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.0",
+    "angular-route": "1.5.0",
+    "angular-sanitize": "1.5.0",
+    "angular-animate": "1.5.0",
+    "bootstrap-sass": "~3.3.5",
+    "jquery": "~2.1.4",
+    "angular-strap": "2.3.8",
+    "angular-motion": "~0.4.3",
+    "ng-file-upload": "~10.0.2",
+    "ui-select": "angular-ui-select#~0.14.9",
+    "animate.scss": "animate-scss#~1.2.2",
+    "moment": "~2.11.1",
+    "moment-timezone": "~0.5.0",
+    "themify-icons": "~0.1.0",
+    "angular-slick-carousel": "~3.1.4",
+    "angular-messages": "1.5.0",
+    "angularjs-slider": "~2.10.2",
+    "angular-cookies": "1.5.0",
+    "branch-sdk": "^2.1.5"
+  }
+}

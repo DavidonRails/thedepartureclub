@@ -1,0 +1,57 @@
+<div class="page-header clearfix">
+    <p class="lead">
+        <div class="col-md-12 text-right">
+            <button class="btn btn-primary" ng-click="add();">Add Event</button>
+        </div>
+    </p>
+</div>
+<div class="card">
+    <div class="table-responsive white">
+        <h3 class="table-title p-20">Events</h3>
+        <table class="table table-full table-full-small">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Location</td>
+                    <td>Date and Time</td>
+                    <td>Created On</td>
+                    <td class="text-right">Options</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="event in events.list.data">
+                    <td>{{::event.name}}</td>
+                    <td>{{::event.location }}</td>
+                    <td>
+						<b>{{::event.event_start_date}}</b> 
+						<font size="2">  from  </font> 
+						<b>{{ ::event.event_start_time }}</b> 
+						<font size="2">  to  </font> 
+						<b>{{ ::event.event_end_time }}</b>
+					</td>
+                    <td>
+                        <span ng-if="::event.status == 0">Pending</span>
+                        <span ng-if="::event.status == 1">Active</span>
+                        <span ng-if="::event.status == 2">Canceled</span>
+                        <span ng-if="::event.status == 3">Booked</span>
+                        <span ng-if="::event.status == 4">Expired</span>
+                        <span ng-if="::event.status == null">Active</span>
+                    </td>
+                    <td class="text-right">
+                        <div>
+                            <button class="btn btn-default" ng-click="edit(event.id)"><i class="glyphicon glyphicon-pencil"></i></button>
+                            <button class="btn btn-default" ng-click="delete(event.id)"><i class="fa fa-trash-o"></i></button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+            <ul class="pagination">
+                <li ng-class="{'disabled': !events.list.pagination.prev_page}" class="paginate_button"><a href="javascript:void(0)" ng-click="paginate('prev_page');"><span>&laquo;</span></a></li>
+                <li ng-class="{'disabled': !events.list.pagination.next_page}" class="paginate_button"><a href="javascript:void(0)" ng-click="paginate('next_page');"><span>&raquo;</span></a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<pack></pack>

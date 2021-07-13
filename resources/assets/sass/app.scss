@@ -1,0 +1,33 @@
+@import "resources/assets/bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "mixins";
+@import "animations";
+@import "modals";
+@import "alerts";
+@import "product-cards";
+@import "range-slider";
+@import "slick";
+@import "layout";
+@import "general";
+@import "fonts";
+@import "ui";
+@import "hero";
+@import "header";
+@import "membership";
+@import "events";
+
+.container-main {
+	padding-top: 50px;
+}
+
+@media (max-width: $screen-sm) {
+	.container-main {
+		//padding-top: 0;
+	}
+}
+
+.no-margin {
+	margin: 0;
+}
+.no-padding {
+	padding: 0;
+}

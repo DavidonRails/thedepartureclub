@@ -1,0 +1,189 @@
+<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" ng-show="title">
+				<button type="button" class="close" aria-label="Close" ng-click="$hide()"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" ng-bind="title"></h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal">
+					<legend>Request informations</legend>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label text-right">Requested Origin</label>
+							<div class="col-md-6">
+								<div class="form-control-static">{{::booking_info.flight_origin}}</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label text-right">Requested Destination</label>
+							<div class="col-md-6">
+								<div class="form-control-static">{{::booking_info.flight_destination}}</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label text-right">Return flight</label>
+							<div class="col-md-6">
+								<div class="form-control-static">
+									<span ng-if="booking_info.return == 1">Yes</span>
+									<span ng-if="booking_info.return == 0">No</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label text-right">Passengers</label>
+							<div class="col-md-6">
+								<div class="form-control-static">{{::booking_info.flight_passengers_count}}</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label text-right">Requested aircraft type</label>
+							<div class="col-md-6">
+								<div class="form-control-static">{{::booking_info.aircraft_name}}</div>
+							</div>
+						</div>
+
+
+
+						<div class="form-group">
+							<label class="col-md-4 control-label text-right">Calculated price</label>
+							<div class="col-md-6">
+								<div class="form-control-static">${{::booking_info.flight_price_total}}<span ng-if="booking_info.return == 1"> (including return flight)</span></div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label text-right">Departure date</label>
+							<div class="col-md-6">
+								<div class="form-control-static">{{::booking_info.departure_date_time }}</div>
+							</div>
+						</div>
+
+						<div ng-if="booking_info.return">
+							<div class="form-group">
+								<label class="col-md-4 control-label text-right">Return Flight Departure date</label>
+								<div class="col-md-6">
+									<div class="form-control-static">{{::booking_info.return_flight.departure_date_time }}</div>
+								</div>
+							</div>
+						</div>
+
+						<hr>
+
+						<div class="form-group" ng-class="{'has-error has-feedback': errors.origin_airport}">
+							<label class="col-md-4 control-label text-right">Origin airport</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control input-md" ng-model="form.origin_airport" placeholder="Enter IATA code">
+								<span ng-message-exp="errors.origin_airport" class="help-block has-error error-msg" ng-bind="errors.origin_airport"></span>
+							</div>
+						</div>
+						<div class="form-group" ng-if="form.origin_airport_data.location">
+							<label class="col-md-4 control-label text-right">Origin location</label>
+							<div class="col-md-6">
+								<div class="form-control-static">{{form.origin_airport_data.location}}</div>
+							</div>
+						</div>
+						<div class="form-group" ng-class="{'has-error has-feedback': errors.destination_airport}">
+							<label class="col-md-4 control-label text-right">Destination airport</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control input-md" ng-model="form.destination_airport" placeholder="Enter IATA code">
+								<span ng-message-exp="errors.destination_airport" class="help-block has-error error-msg" ng-bind="errors.destination_airport"></span>
+							</div>
+						</div>
+						<div class="form-group" ng-if="form.destination_airport_data.location">
+							<label class="col-md-4 control-label text-right">Destination location</label>
+							<div class="col-md-6">
+								<div class="form-control-static">{{form.destination_airport_data.location}}</div>
+							</div>
+						</div>
+
+						<div class="form-group" list-aircrafts ng-class="{'has-error has-feedback': errors.aircraft_id}">
+							<label class="col-md-4 control-label text-right">Aircraft</label>
+							<div class="col-md-6">
+								<ui-select ng-model="form.aircraft" theme="select2">
+									<ui-select-match placeholder="Select or search a plane in the list...">{{$select.selected.name}}</ui-select-match>
+									<ui-select-choices repeat="data in aircrafts"  >
+										<div ng-bind-html="data.name | highlight: $select.search"></div>
+									</ui-select-choices>
+								</ui-select>
+								<span ng-message-exp="errors.aircraft_id" class="help-block has-error error-msg" ng-bind="errors.aircraft_id"></span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label text-right">Final price</label>
+							<div class="col-md-6">
+								<input type="number" class="form-control input-md" ng-model="form.final_price">
+								<span ng-message-exp="errors.final_price" class="help-block has-error error-msg" ng-bind="errors.final_price"></span>
+							</div>
+						</div>
+
+
+						<div class="form-group" ng-class="{'has-error has-feedback': errors.arriving_date}">
+							<label class="col-md-4 control-label text-right">Arriving date</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control input-md" ng-model="form.arriving_date" bs-datepicker>
+							</div>
+						</div>
+						<div class="form-group" ng-class="{'has-error has-feedback': errors.arriving_time}">
+							<label class="col-md-4 control-label text-right">Arriving time</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control input-md" ng-model="form.arriving_time" bs-timepicker>
+							</div>
+						</div>
+						<div class="form-group" ng-class="{'has-error has-feedback': errors.tail_number}">
+							<label class="col-md-4 control-label text-right">Tail number</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control input-md" ng-model="form.tail_number">
+							</div>
+						</div>
+						<div class="form-group" ng-class="{'has-error has-feedback': errors.fbo}">
+							<label class="col-md-4 control-label text-right">FBO</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control input-md" ng-model="form.fbo">
+							</div>
+						</div>
+
+						<div class="form-group" ng-class="{'has-error has-feedback': errors.return_arriving_date}" ng-if="booking_info.return == 1">
+							<label class="col-md-4 control-label text-right">Return Flgiht Arriving date</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control input-md" ng-model="form.return_arriving_date" bs-datepicker>
+							</div>
+						</div>
+						<div class="form-group" ng-class="{'has-error has-feedback': errors.return_arriving_time}" ng-if="booking_info.return == 1">
+							<label class="col-md-4 control-label text-right">Return Flight Arriving time</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control input-md" ng-model="form.return_arriving_time" bs-timepicker>
+							</div>
+						</div>
+						<div class="form-group" ng-class="{'has-error has-feedback': errors.return_tail_number}" ng-if="booking_info.return == 1">
+							<label class="col-md-4 control-label text-right">Return Flight Tail number</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control input-md" ng-model="form.return_tail_number">
+							</div>
+						</div>
+						<div class="form-group" ng-class="{'has-error has-feedback': errors.return_fbo}"  ng-if="booking_info.return == 1">
+							<label class="col-md-4 control-label text-right">Return flight FBO</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control input-md" ng-model="form.return_fbo">
+							</div>
+						</div>
+
+
+						<div class="form-group" ng-class="{'has-error has-feedback': errors.note}">
+							<label class="col-md-4 control-label text-right">Note</label>
+							<div class="col-md-6">
+								<textarea class="form-control vertical" ng-model="form.note"></textarea>
+							</div>
+						</div>
+
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" ng-click="accept(booking_info.booking_id, form)">Accept</button>
+				<button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,49 @@
+<div class="card">
+	<div class="table-responsive white">
+		<h3 class="table-title p-20">Requested Charter Bookings</h3>
+		<table class="table table-full table-full-small">
+			<thead>
+			<tr>
+				<td>Aircraft</td>
+				<td>Route</td>
+				<td>Return flight</td>
+				<td>Date</td>
+				<td>PAX</td>
+				<td>Price</td>
+				<td class="text-right">Options</td>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="booking in bookings.list.data">
+				<td>{{::booking.aircraft_name}}</td>
+				<td>
+					Origin: <b>{{::booking.flight_origin}}</b>
+					<br>
+					Destination: <b>{{::booking.flight_destination}}</b>
+				</td>
+				<td>
+					<span ng-if="booking.return == 0">No</span>
+					<span ng-if="booking.return == 1">Yes</span>
+				</td>
+				<td>{{::booking.departure_date}}</td>
+				<td>{{::booking.aircraft_seats}}</td>
+				<td>${{::booking.flight_price}}</td>
+				<td class="text-right">
+					<button class="btn btn-default" ng-if="booking.status != 'Waiting for approval' && booking.flight_paid == 0">Waiting for payment</button>
+					<button class="btn btn-default" ng-click="approve(booking.booking_id)" ng-if="booking.status == 'Waiting for approval'">Make offer</button>
+					<button class="btn btn-default" ng-click="finish(booking.booking_id)" ng-if="booking.status == 'Pending' && booking.flight_paid == 1">Approve</button>
+					<button class="btn btn-default" ng-click="info(booking.booking_id)">Info</button>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+		<nav>
+			<ul class="pagination">
+				<li ng-class="{'disabled': !bookings.list.pagination.prev_page}" class="paginate_button"><a href="javascript:void(0)" ng-click="paginate('prev_page');"><span>&laquo;</span></a></li>
+				<li ng-class="{'disabled': !bookings.list.pagination.next_page}" class="paginate_button"><a href="javascript:void(0)" ng-click="paginate('next_page');"><span>&raquo;</span></a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+<charter-info></charter-info>
+<charter-approve></charter-approve>

@@ -1,0 +1,88 @@
+html {
+	font-size: 62.5%;
+	height: 100%;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+}
+
+body {
+	background: #ffffff;
+	font-family: 'Lato', sans-serif;
+	font-size: 14px;
+	font-weight: 300;
+	color: #535353;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+	line-height: 1.67;
+	height: 100%;
+	&:not(.homepage) {
+		display: table;
+		width: 100%;
+		// Let it down (Footer)
+		.page-container {
+			display: table-row;
+			height: 100%;
+			background: #FAFAFA;
+		}
+	}
+}
+
+ul {
+	padding-left: 0;
+	list-style-type: none;
+}
+
+a {
+	&:hover, &:active, &:focus {
+		text-decoration: none;
+	}
+	transition: all .2s ease-in-out;
+}
+
+button {
+	border: none;
+	background: none;
+	outline: none;
+	transition: all .2s ease-in-out;
+}
+// Kill Tranistion Class
+.no-trans {
+	transition: none;
+}
+
+label {
+	font-weight: inherit;
+}
+
+// KILL THE GUTTERS
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+
+/* Custom pages */
+.page-view {
+	padding-top: 68px;
+	background: #FAFAFA;
+}
+
+.alert {
+	border-radius: 0;
+	border: none;
+	// position: fixed;
+    // top: 69px;
+    // max-width: 1024px;
+    // width: 100%;
+    // left: 0;
+    // right: 0;
+    // margin: 0 auto;
+    // z-index: 1050;
+    // box-shadow: 2px 4px 7px 0px rgba(0, 0, 0, 0.16);
+}

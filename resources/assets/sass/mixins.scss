@@ -1,0 +1,92 @@
+/**
+*
+* Mixins
+*
+**/
+
+
+/*  Clearfix
+-------------------------------------------------------*/
+.clearfix {
+    *zoom: 1;
+    &:before,
+    &:after {
+        display: table;
+        content: " ";
+    }
+    &:after {
+       clear: both;
+    }
+}
+
+@mixin clearfix {
+    *zoom: 1;
+    &:before,
+    &:after {
+        display: table;
+        content: " ";
+    }
+    &:after {
+       clear: both;
+    }
+}
+
+
+/*  Placeholder
+-------------------------------------------------------*/
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}
+// @include placeholder {color: #fff;}
+
+/*  Size
+-------------------------------------------------------*/
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+// @include size(300px, 200px);
+
+
+/*  Custom Breakpoints
+-------------------------------------------------------*/
+@mixin max-width($point) {
+  @media (max-width: $point)  {
+      @content;
+  }
+}
+//@include max-width(640px){}
+
+
+@mixin min-width($point) {
+  @media (min-width: $point)  {
+      @content;
+  }
+}
+//@include min-width(640px){}
+
+/*  Custom Breakpoints
+-------------------------------------------------------*/
+
+
+@mixin ti {
+  font-family: 'themify';
+}
+// @include ti
+
+@mixin font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+//@include font-montserrat;
+
+
+/*  Size
+-------------------------------------------------------*/
+@mixin vpadding($top, $bottom) {
+  padding-top: $top;
+  padding-bottom: $bottom;
+}
+// @include vpadding(300px, 200px);

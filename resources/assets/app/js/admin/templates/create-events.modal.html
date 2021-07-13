@@ -1,0 +1,175 @@
+<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+<style>
+.desc-editor {
+    width: 100%;
+    height: 250px;
+    border: 1px solid;
+}
+</style>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" ng-show="title">
+				<button type="button" class="close" aria-label="Close" ng-click="$hide()"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" ng-bind="title"></h4>
+			</div>
+			<div class="modal-body" ng-init="initForm();">
+				<form class="form-horizontal">
+
+ 					<div class="row">
+
+					    <div class="form-group" ng-class="{'has-error has-feedback': errors.event_name}">
+						    <label class="col-md-4 control-label text-right">Event Name</label>
+						    <div class="col-md-6">
+							    <input type="text" class="form-control input-md" ng-model="form.event_name" placeholder="Enter Event Name">
+							    <span ng-message-exp="errors.event_name" class="help-block has-error error-msg" ng-bind="errors.event_name"></span>
+						    </div>
+						</div>
+						
+						<div class="form-group" ng-class="{'has-error has-feedback': errors.location}">
+						    <label class="col-md-4 control-label text-right">Event Location</label>
+						    <div class="col-md-6">
+							    <input type="text" class="form-control input-md" ng-model="form.location" placeholder="Enter Event Location">
+							    <span ng-message-exp="errors.location" class="help-block has-error error-msg" ng-bind="errors.location"></span>
+						    </div>
+					    </div>
+
+					    <div class="form-group" ng-class="{'has-error has-feedback': errors.date}">
+						    <label class="col-md-4 control-label text-right">Date</label>
+						    <div class="col-md-6">
+							    <div class="row">
+								    <div class="col-md-4 text-center">
+									    <label>YYYY</label>
+									    <br>
+									    <input type="text" class="form-control input-md text-center" maxlength="4" ng-model="form.date.year">
+								    </div>
+								    <div class="col-md-3 text-center">
+									    <label>MM</label>
+									    <br>
+									    <input type="text" class="form-control input-md text-center" maxlength="2" ng-model="form.date.month">
+								    </div>
+								    <div class="col-md-3 text-center">
+									    <label>DD</label>
+									    <br>
+									    <input type="text" class="form-control input-md text-center" maxlength="2" ng-model="form.date.day">
+								    </div>
+							    </div>
+							    <div class="row">
+								    <span ng-message-exp="errors.date" class="help-block has-error error-msg" ng-bind="errors.date"></span>
+							    </div>
+						    </div>
+					    </div>
+
+					    <div class="form-group" ng-class="{'has-error has-feedback': errors.period_from}">
+						    <label class="col-md-4 control-label text-right">Event Start</label>
+						    <div class="col-md-6">
+							    <div class="row">
+								    <div class="col-md-4 text-center">
+									    <label>HH</label>
+									    <br>
+									    <input type="text" class="form-control input-md text-center" maxlength="2" ng-model="form.period_from.hours">
+								    </div>
+								    <div class="col-md-4 text-center">
+									    <label>MM</label>
+									    <br>
+									    <input type="text" class="form-control input-md text-center" maxlength="2" ng-model="form.period_from.minutes">
+								    </div>
+							    </div>
+							    <div class="row">
+								    <span ng-message-exp="errors.period_from" class="help-block has-error error-msg" ng-bind="errors.period_from"></span>
+							    </div>
+						    </div>
+					    </div>
+
+					    <div class="form-group" ng-class="{'has-error has-feedback': errors.period_to}">
+						    <label class="col-md-4 control-label text-right">Event End</label>
+						    <div class="col-md-6">
+							    <div class="row">
+								    <div class="col-md-4 text-center">
+									    <label>HH</label>
+									    <br>
+									    <input type="text" class="form-control input-md text-center" maxlength="2" ng-model="form.period_to.hours">
+								    </div>
+								    <div class="col-md-4 text-center">
+									    <label>MM</label>
+									    <br>
+									    <input type="text" class="form-control input-md text-center" maxlength="2" ng-model="form.period_to.minutes">
+								    </div>
+							    </div>
+							    <div class="row">
+								    <span ng-message-exp="errors.period_to" class="help-block has-error error-msg" ng-bind="errors.period_to"></span>
+							    </div>
+						    </div>
+					    </div>
+
+
+					    <div class="form-group" ng-class="{'has-error has-feedback': errors.status}" ng-if="method == 'edit'">
+
+						    <label class="col-md-4 control-label text-right">Status</label>
+						    <div class="col-md-6">
+							    <select class="form-control" ng-model="form.status" ng-options="status.val for status in options.modal.status"></select>
+						    </div>
+
+					    </div>
+
+					    <div class="form-group" ng-class="{'has-error has-feedback': errors.seats}">
+						    <label class="col-md-4 control-label text-right">Seats</label>
+						    <div class="col-md-6">
+							    <input type="number" class="form-control input-md" ng-model="form.seats" min="1">
+							    <span ng-message-exp="errors.seats" class="help-block has-error error-msg" ng-bind="errors.seats"></span>
+						    </div>
+						</div>
+						
+					    <div class="form-group">
+						    <label class="col-md-4 control-label text-right">Event image</label>
+						    <div class="col-md-6">
+							    <div class="btn btn-primary"
+							         ngf-select="customImage()"
+							         ng-model="form.event_image"
+									 name="file"
+									 aria-multiselectable="true"
+									 multiple
+							         ngf-pattern="'.jpg'"
+							         ngf-accept="image/jpg"
+							         ngf-max-size="2MB"
+							    >Select</div>
+							    <span class="help-inline">accept only jpg</span>
+						    </div>
+					    </div>
+
+					    <div class="form-group">
+						    <label class="col-md-4 control-label text-right">Image preview</label>
+						    <div class="col-md-6">
+							    <img ng-if="image_preview" ng-src="{{image_preview}}" style="max-height: 100px; width: auto">
+							    <img ngf-src="image_preview_custom" style="max-height: 100px; width: auto">
+							    <div ng-if="!image_preview && !image_preview_custom" class="form-control-static">Upload an image</div>
+						    </div>
+					    </div>
+
+					    <div class="form-group" ng-if="method == 'insert'" ng-class="{'has-error has-feedback': errors.description}">
+							<label class="col-md-4 control-label text-right">Description</label>
+							<label class="col-md-6 control-label text-right text-red">* This field will be displayed as HTML.</label>
+							<div class="row">
+								<div class="col-md-10 col-md-offset-1">
+									<div id="desc-editor" class="desc-editor" ng-model="form.description">
+										<p>Please enter description.</p>
+									</div>
+								</div>
+							</div>
+					    </div>
+
+				    </div>
+
+
+				</form>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" ng-click="action(method, form)">
+					<span ng-if="method == 'insert'">Insert</span>
+					<span ng-if="method == 'edit'">Edit</span>
+				</button>
+				<button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

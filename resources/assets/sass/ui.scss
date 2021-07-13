@@ -1,0 +1,469 @@
+
+/*  Input styles */
+.form-group {
+	position: relative;
+}
+
+.form-control {
+	height: 50px;
+	border-radius: 0;
+	border-color: #D8D8D8;
+	padding: 6px 40px 6px 15px;
+	box-shadow: none;
+	position: relative;
+	&[type="number"] {
+		padding-right: 15px;
+	}
+}
+
+.form-inline-table {
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+textarea.form-control {
+	padding: 12px;
+}
+
+.form-group {
+	.form-control-ico {
+		position: absolute;
+	    right: 15px;
+	    top: 18px;
+	    color: #9B9696;
+		// Custom Icons
+		&.ico-orig {
+			@include size(20px, 20px);
+			margin-top: -5px;
+			&:before {
+				content: "";
+				margin-right: 5px;
+				opacity: .4;
+				background-image: url('/images/ico/orig-ico-gray.svg');
+				background-repeat: no-repeat;
+				background-size: 16px 11px;
+				background-position: 0 2px;
+				@include size(20px, 20px);
+				vertical-align: middle;
+				display: inline-block;
+			}
+		}
+		&.ico-dest {
+			@include size(20px, 20px);
+			margin-top: -5px;
+			&:before {
+				content: "";
+				margin-right: 5px;
+				opacity: .4;
+				background-image: url('/images/ico/dest-ico-gray.svg');
+				background-repeat: no-repeat;
+				background-size: 17px 11px;
+				background-position: 0 2px;
+				@include size(20px, 20px);
+				vertical-align: middle;
+				display: inline-block;
+			}
+		}
+	}
+
+	// Typehead .form-group
+	&.type {
+		.typeahead {
+			max-width: 420px;
+			min-width: 100%;
+			@include max-width(768px){
+				width: 100%;
+				min-width: 100%;
+			}
+			> li {
+				border-bottom: 1px solid #F4F4F4;
+				&:last-child{
+					border-bottom: none;
+				}
+				> a {
+					@include text-overflow();
+					width: 100%;
+					padding: 12px 40px 12px 24px;
+					cursor: pointer;
+					//position: relative;
+					overflow: hidden;
+					&:after {
+						content: "\e693";
+						@include ti;
+						position: absolute;
+						right: 20px;
+						margin-top: 2px;
+						color: $gray-light;
+					}
+				}
+				&.active, &:focus {
+					> a {
+						background-color: #FFC133;
+						&:after {
+							color: #ffffff;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.form-horizontal .control-label {
+	padding-top: 12px;
+}
+
+/* Text Helpers */
+.intro-paragraph {
+	font-size: 18px;
+}
+
+.normal {
+	font-weight: normal;
+}
+
+/* Errors on Inputs */
+.help-inline {
+	font-size: 10px;
+    color: red;
+    text-align: right;
+    display: block;
+}
+
+/* Button Styles */
+.btn {
+	@include font-montserrat;
+	font-weight: 400;
+	border-radius: 0;
+	padding: 16px 40px;
+	&:focus, &:active:focus {
+		outline: 0;
+	}
+	&.btn-primary {
+		background-color: #FFC133;
+		border-color: #FFC133;
+		&:hover, &:active, &:active:focus {
+			background-color: darken(#FFC133, 10%);
+			border-color: darken(#FFC133, 10%);
+			box-shadow: 0 3px 15px rgba(0,0,0,0.20);
+		}
+	}
+
+	&.btn-gray {
+		background-color: #AFAFAF;
+		border-color: #AFAFAF;
+		color: #ffffff;
+		&:hover, &:active, &:active:focus {
+			background-color: darken(#AFAFAF, 10%);
+			border-color: darken(#AFAFAF, 10%);
+			box-shadow: 0 3px 15px rgba(0,0,0,0.20);
+		}
+	}
+
+	&.btn-fb {
+		background-color: #3A5795;
+		border-color: #3A5795;
+		color: #ffffff;
+		span {
+			position: relative;
+			&:before {
+				@include ti;
+				content:"\e741";
+				position: absolute;
+			    left: -35px;
+			    top: -5px;
+			    font-size: 20px;
+			}
+		}
+	}
+
+	// This is for full width responsive btn
+	&.xs-btn-full {
+		@include max-width($screen-xs) {
+			display: block;
+			width: 100%;
+		}
+	}
+	&.sm-btn-full {
+		@include max-width($screen-sm) {
+			display: block;
+			width: 100%;
+		}
+	}
+}
+
+.btn-toolbar {
+	margin-left: -15px;
+	> .btn {
+		margin-left: 15px;
+	}
+}
+
+/* Custom Buttons */
+
+.btn-filter-search {
+	background-color: #FFC133;
+	color: #ffffff;
+	width: 100%;
+	height: 100%;;
+	padding: 10px 0;
+	font-size: 19px;
+	&:hover, &:active, &:active:focus {
+		background-color: darken(#FFC133, 10%);
+		border-color: darken(#FFC133, 10%);
+		box-shadow: 0 3px 15px rgba(0,0,0,0.20);
+	}
+}
+
+/*  CHECKBOX STYLING */
+/* Base for label styling */
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+	position: absolute;
+	left: -9999px;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+	position: relative;
+	padding-left: 30px;
+	cursor: pointer;
+	font-weight: 300;
+	color: $gray;
+	line-height: 20px;
+	.has-error & {
+		color: $brand-danger;
+	}
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+	content: '';
+	position: absolute;
+	left:0;
+	top: 0;
+	@include size(20px, 20px);
+	border: 1px solid #aaa;
+	background: #ffffff;
+	.has-error & {
+		border-color: $brand-danger;
+		background: none;
+	}
+}
+
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+	content: "\e64c";
+	@include ti;
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 14px;
+	color: #fff;
+	transition: all .2s;
+}
+
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+	opacity: 0;
+	transform: scale(0);
+	@include size(20px, 20px);
+	background: #009fd2;
+	text-align: center;
+}
+
+[type="checkbox"]:checked + label:after {
+	opacity: 1;
+	transform: scale(1);
+	@include size(20px, 20px);
+	background: #009fd2;
+	text-align: center;
+}
+
+/* disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+	border-color: #bbb;
+	background: #ddd;
+}
+[type="checkbox"]:disabled:checked + label:after {
+	//color: #999;
+}
+
+//disabled checkbox
+[type="checkbox"]:disabled + label {
+	color: #aaa;
+	cursor: default;
+	&:after {
+		background: gray!important;
+	}
+}
+
+.form-group {
+	.checkbox {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-right: 20px;
+		/* @media @tab-land {
+			margin-bottom: 20px;
+		} */
+	}
+}
+
+
+
+// Datepicker DD
+
+.datepicker {
+	font-weight: 300;
+	border-radius: 0;
+	border: none;
+	margin-top: 1px;
+	padding: 0 10px 10px;
+	min-width: 280px;
+	table {
+		> thead  {
+			.btn {
+				background: transparent!important;
+				padding: 20px 12px;
+			}
+		}
+	}
+
+	.dow {
+		font-size: 11px;
+		text-transform: uppercase;
+		font-weight: 400;
+		color: #000000;
+	}
+
+	.btn-today {
+		background: $gray-light;
+	}
+
+	.btn {
+		font-size: 11px;
+		padding: 12px;
+		border: none;
+		font-family: 'Lato', sans-serif;
+		box-shadow: none!important;
+		/* //icon overide
+		.glyphicon-chevron-left, .glyphicon-chevron-right {
+			&:before {@include ti;}
+		}
+		.glyphicon-chevron-right {
+			&:before {content: "\e628";}
+		}
+		.glyphicon-chevron-left {
+			&:before {content: "\e629";}
+		} */
+		strong {
+			font-weight: 400;
+		}
+		&[disabled] {
+			opacity: 0.28;
+		}
+	}
+}
+
+// Timepicker
+.dropdown-menu.timepicker {
+	width:100%;
+	padding: 10px 15px;
+	table {
+		width: 100%;
+	}
+	.btn {
+		border: none;
+		width: 30px;
+		height: 30px;
+		padding: 0;
+		font-size: 12px;
+		&[disabled] {
+			opacity: .5;
+		}
+		&.pull-left {
+			&:hover {
+				background: transparent;
+			}
+		}
+	}
+}
+/* Bootstrap Dropdown */
+
+.dropdown-menu {
+    margin: 1px 0;
+    border-radius: 0;
+    border: 0;
+    padding: 0;
+    outline: none;
+}
+
+
+.ui-select {
+  background: #fff;
+  position: relative;
+  // &:after {
+  //   content: '';
+  //   position: absolute;
+  //   right: 10px;
+  //   top: 15px;
+  //   width: 10px;
+  //   height: 10px;
+  //   background: #000;
+  // }
+  select {
+    color: #777777;
+    display: inline-block;
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.42857143;
+    height: 50px;
+    padding: 6px 40px 6px 15px;
+    background: none;
+    border: none;
+    border: 1px solid #D8D8D8;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+    &:focus {
+		border-color: #66afe9;
+		outline: 0;
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    }
+  }
+  select::-ms-expand { display: none; } /* hide default down arrow in IE10*/
+}
+/* hack to fall back in opera */
+_:-o-prefocus, .selector {
+  .native-ui-select { background: none; }
+}
+
+
+// Preload pages
+#pagePreload {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:#fff;
+    z-index: $zindex-navbar-fixed + 1;
+}
+
+#status {
+	@include size(80px, 80px);
+	top: calc(50% - 40px);
+	position:absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+    background-image:url(/images/symbol_refresh.png);
+    background-repeat:no-repeat;
+    background-position:center;
+}

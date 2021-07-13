@@ -1,0 +1,10 @@
+// Run artisan in background
+$ nohup php artisan queue:work --daemon &
+// List artisan jobs
+$ jobs -l
+// Kill artisan job
+$ kill ID
+
+//// Seeders ////
+// Flights seeder
+$ php artisan db:seed --class FlightsSeeder

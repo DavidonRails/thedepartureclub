@@ -1,0 +1,299 @@
+.hero {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
+	display: table;
+	overflow: hidden;
+	@include size(100%, 100%);
+	@include min-width($screen-lg){
+		//background-attachment: fixed;
+	}
+	.hero-image {
+	    position: absolute;
+	    width: 100%;
+	    height: 100%;
+	    background-position: center;
+	    background-size: cover;
+	    z-index: -1;
+	    left: 0;
+	    top: 0;
+		@include max-width($screen-md){
+			transform: none!important;
+		}
+	}
+	.app-link {
+		position: absolute;
+		bottom: 30px;
+		right: 30px;
+		font-weight: 400;
+		color: #ffffff;
+		@include max-width(568px){
+			display: none;
+		}
+		a {
+			margin-left: 18px;
+			display: inline-block;
+		}
+	}
+	.scroll-down {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		margin: 0 auto;
+		text-align: center;
+		width: 30px;
+		a {
+			display: inline-block;
+			img {
+				width: 30px;
+			}
+		}
+	}
+}
+
+.hero-content {
+	display: table-cell;
+	vertical-align: middle;
+	padding: 0 15px;
+}
+
+.hero-heading {
+	text-align: center;
+	h1, p {
+		color: #ffffff;
+	}
+	h1 {
+		font-size: 72px;
+		@include font-montserrat;
+	}
+	p {
+		font-size: 20px;
+		@include max-width(568px){
+			font-size: 16px;
+		}
+	}
+	@include max-width(768px){
+	    max-width: 480px;
+	    margin: 0 auto;
+	    h1 {
+	    	font-size: 10vw;
+	    }
+	}
+}
+
+.hero-search {
+	background: #ffffff;
+	margin: 50px auto 0;
+	@include clearfix;
+	max-width: 865px;
+	@include max-width(768px){
+		max-width: 480px;
+	}
+	ul.inline-hero-form {
+		display: table;
+		width: 100%;
+		margin-bottom: 0;
+		box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+		input {
+			display: block;
+			border: none;
+			@include size(100%, 53px);
+			padding-left: 24px;
+			padding-right: 40px;
+			outline: none;
+			transition: all .3s ease-in-out;
+			&:focus:active {
+				background: #F4F4F4;
+			}
+			&:focus {
+				background: #F9F9F9;
+			}
+		}
+		> li {
+			display: table-cell;
+			vertical-align: middle;
+			position: relative;
+			.input-ico {
+				color: lighten($gray-light, 20%);
+				position: absolute;
+				top: 20px;
+				right: 15px;
+			}
+			@include max-width(768px){
+				display: block;
+				width: 100%!important;
+				border-bottom: 1px solid $gray-lighter;
+				&:last-child {
+					border: none;
+				}
+			}
+			&:nth-child(-n+2) {
+				&:after {
+					content:"";
+					@include size(1px, 35px);
+					background: #F4F4F4;
+					position: absolute;
+					top: 9px;
+					right: 0;
+				}
+			}
+			.form-control-ico {
+				position: absolute;
+			    right: 15px;
+			    top: 18px;
+			    color: #9B9696;
+				// Custom Icons
+				&.ico-orig {
+					@include size(20px, 20px);
+					margin-top: -3px;
+					&:before {
+						content: "";
+						margin-right: 5px;
+						opacity: .4;
+						background-image: url('/images/ico/orig-ico-gray.svg');
+						background-repeat: no-repeat;
+						background-size: 16px 11px;
+						background-position: 0 2px;
+						@include size(20px, 20px);
+						vertical-align: middle;
+						display: inline-block;
+					}
+				}
+				&.ico-dest {
+					@include size(20px, 20px);
+					margin-top: -3px;
+					&:before {
+						content: "";
+						margin-right: 5px;
+						opacity: .4;
+						background-image: url('/images/ico/dest-ico-gray.svg');
+						background-repeat: no-repeat;
+						background-size: 17px 11px;
+						background-position: 0 2px;
+						@include size(20px, 20px);
+						vertical-align: middle;
+						display: inline-block;
+					}
+				}
+			}
+
+			&.search-date-picker {
+				width: 145px;
+				.datepicker {
+					@include max-width(768px){
+						max-width: 100%!important;
+					    width: 100%;
+					    left: 0!important;
+					}
+
+				}
+			}
+			&.search-button {
+				width: 165px;
+			}
+			.typeahead {
+				max-width: 420px;
+				min-width: 320px;
+			    margin: 1px 0;
+			    border-radius: 0;
+			    border: 0;
+			    padding: 0;
+			    outline: none;
+			    @include max-width(768px){
+					min-width: 100%;
+			    	width: 100%;
+			    }
+			     > li {
+			     	border-bottom: 1px solid #F4F4F4;
+			     	&:last-child{
+			     		border-bottom: none;
+			     	}
+				    > a {
+						@include text-overflow();
+						width: 100%;
+				     	padding: 12px 40px 12px 24px;
+				     	cursor: pointer;
+				     	position: relative;
+				     	&:after {
+							content: "\e693";
+							@include ti;
+							position: absolute;
+							right: 20px;
+							margin-top: 2px;
+							color: $gray-light;
+				     	}
+				    }
+				    &.active, &:focus {
+						> a {
+							background-color: #FFC133;
+							&:after {
+								color: #ffffff;
+							}
+						}
+				    }
+			     }
+			}
+		}
+	}
+}
+
+
+/* App Promo Section */
+.app-promo {
+	@include size(100%, 575px);
+	background-image: url(/images/app-promo.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center top;
+	position: relative;
+	z-index: 0;
+	@include max-width($screen-sm) {
+		height: 470px;
+	}
+	&:after {
+		content: "";
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	    width: 100%;
+	    height: 100%;
+	    background: rgba(255, 255, 255, .1);
+	    z-index: -1;
+	}
+	> div {
+		@extend .container;
+		display: table;
+		height: 575px;
+		@include max-width($screen-sm) {
+			height: 470px;
+		}
+		article {
+			display: table-cell;
+			vertical-align: middle;
+			height: 100%;
+		}
+		h1, p {
+			color: #ffffff;
+		}
+		h1 {
+			font-size: 50px;
+			font-weight: 600;
+			margin-bottom: 30px;
+			@include max-width($screen-sm) {
+				font-size: 7.5vw;
+			}
+		}
+		p {
+			margin-bottom: 50px;
+			font-weight: 400;
+			@include max-width($screen-xs) {
+				font-size: 14px;
+				br {
+					display: none;
+				}
+			}
+		}
+	}
+}

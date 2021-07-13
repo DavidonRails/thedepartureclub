@@ -1,0 +1,1136 @@
+/*  Sections */
+
+.single-section {
+	@include vpadding(110px, 130px);
+	.section-title {
+		margin-top: -45px;
+	}
+}
+
+.flights-section {
+	padding: 90px 0 55px;
+	background: #ffffff;
+}
+
+.details-section {
+	@include vpadding(80px, 60px);
+}
+
+
+.about-us-section {
+	background: #FAFAFA;
+	padding: 100px 0;
+	.info-list {
+		max-width: 580px;
+		margin: 0 auto 60px;
+		li {
+			position: relative;
+			table {
+				margin-left: 10px;
+			}
+			h1 {
+				margin: 0;
+				font-weight: 700;
+				font-size: 42px;
+				color: #009FD2;
+				padding-right: 10px;
+				@include max-width($screen-xs) {
+					font-size: 9vw;
+					margin: 0 0 5px;
+				}
+			}
+			p {
+				font-weight: normal;
+				line-height: 1.2;
+				font-size: 15px;
+				margin: 0;
+				@include max-width($screen-xs) {
+					font-size: 2.5vw;
+				}
+			}
+			&:after {
+				content: "";
+				@include size(1px, 35px);
+				background: $gray-lighter;
+				position: absolute;
+				top: 12%;
+				right: 0;
+				@include max-width($screen-xs) {
+					top: 0;
+				}
+			}
+			&:last-child {
+				&:after {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.how-it-works-section {
+	padding: 100px 0;
+	.info-list {
+		text-align: center;
+		li {
+			h1 {
+				margin: 0 0 15px;
+				font-weight: 700;
+				font-size: 50px;
+				color: #009FD2;
+				@include max-width($screen-xs) {
+					font-size: 9vw;
+					margin: 0 0 5px;
+				}
+				small {
+					font-weight: 700;
+					font-size: 45%;
+					color: inherit;
+				}
+			}
+			p {
+				font-size: 15px;
+				font-weight: normal;
+				line-height: 1.2;
+				@include max-width($screen-xs) {
+					font-size: 2.5vw;
+				}
+			}
+			position: relative;
+			&:after {
+				content: "";
+				@include size(1px, 66px);
+				background: $gray-lighter;
+				position: absolute;
+				top: 12%;
+				right: 0;
+				@include max-width($screen-xs) {
+					top: 0;
+				}
+			}
+			&:last-child {
+				&:after {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.subscribe-section {
+	padding: 100px 0;
+	@include max-width($screen-md) {
+		padding: 50px 0 70px;
+	}
+	.subscribe-form {
+		margin-top: 5%;
+		table {
+			width: 100%;
+			td {
+				&:last-child {
+					width: 155px;
+				}
+				.form-control {
+					height: 53px;
+					@include min-width($screen-xs) {
+						border-right: none;
+					}
+					@include max-width($screen-xs) {
+						margin-bottom: 15px;
+					}
+				}
+				.btn {
+				}
+				@include max-width($screen-xs) {
+					display: block;
+					width: 100%!important;
+				}
+			}
+		}
+	}
+}
+
+.h1 {
+	@include max-width($screen-xs) {
+		font-size: 7vw;
+	}
+}
+
+.section-title {
+	margin-bottom: 75px;
+	h1 {
+		font-weight: 400;
+		margin-top: 10px;
+		margin-bottom: 35px;
+	}
+	p {
+		max-width: 730px;
+		margin: 0 auto;
+	}
+}
+
+.widget {
+	padding: 12%;
+	border-bottom: 2px solid darken($gray-lighter, 8%);
+	margin-bottom: 30px;
+	h1 {
+		margin-top: 0;
+		@include max-width(1200px){
+			font-size: 30px;
+		}
+	}
+	&.become-member {
+		background: lighten($gray-lighter, 2%);
+		min-height: 535px;
+		@include max-width(1200px){
+			min-height: 463px;
+		}
+		h1 {
+			margin-bottom: 65px;
+			font-weight: 900;
+		}
+		p {
+			font-size: 15px;
+			margin-bottom: 100px;
+		}
+	}
+
+	&.discount {
+		background: #ffffff;
+		min-height: 252px;
+		h1 {
+			margin-bottom: 20px;
+			font-weight: 900;
+		}
+		p {
+			font-size: 15px;
+			margin-bottom: 40px;
+		}
+		.widget-link {
+			text-align: center;
+			a {
+				color: #535353;
+				font-size: 15px;
+				@include font-montserrat;
+				display: inline-block;
+				padding-right: 10px;
+				position: relative;
+				&:after {
+					@include ti;
+					position: absolute;
+					content: "\e628";
+					padding-left: 10px;
+					font-size: 10px;
+					line-height: 28px;
+					transform: translateX(0px);
+					transition: all .2s ease-in-out;
+				}
+				&:hover {
+					&:after {
+						transform: translateX(6px);
+					}
+				}
+			}
+
+		}
+		@include max-width(1200px){
+			min-height: 216px;
+			p {
+				margin-bottom: 10px;
+			}
+		}
+	}
+}
+
+
+/* Pages Styles */
+
+.page-cover {
+	background-color: $gray-light;
+	background-size: cover;
+	background-position: center;
+	display: table;
+	@include size(100%, 250px);
+	.cover-title {
+		display: table-cell;
+		height: 100%;
+		vertical-align: middle;
+		text-align: center;
+		padding: 0 15px;
+		h1, p {color: #ffffff;}
+		h1 {font-weight: 700;}
+		p {font-size: 16px; font-weight: normal;}
+	}
+}
+
+/* Footer Styles */
+footer {
+	font-weight: normal;
+	background: #303030;
+	//height: 100%;
+	.container-fluid {
+		&:first-child {
+			border-bottom: 1px solid #888888;
+		}
+		@include min-width($screen-md) {
+			padding: 0 50px;
+		}
+	}
+	a {
+		color: #AFAFAF;
+		&:hover {
+			color: lighten(#AFAFAF, 20%);
+		}
+	}
+	.footer-top {
+		padding: 70px 0;
+		@include max-width($screen-md) {
+			padding: 40px 0;
+		}
+	}
+	.footer-bottom {
+		padding: 50px 0;
+		@include max-width($screen-md) {
+			padding: 30px 0;
+		}
+	}
+	.footer-logo {
+		img {
+			width: 92px;
+		}
+		@include max-width($screen-xs) {
+			text-align: center;
+			padding: 15px 0;
+		}
+	}
+	.footer-nav {
+		text-align: center;
+		width: 100%;
+		@include max-width($screen-xs) {
+			margin: 30px 0;
+			text-align: left;
+		}
+		li {
+			display: inline-block;
+			a {padding: 0 25px 10px; display: inline-block;}
+			@include max-width($screen-xs) {
+				padding-bottom: 5px;
+				a {
+					padding: 0 15px;
+				}
+			}
+		}
+	}
+	.footer-social {
+		width: 105px;
+		z-index: 1;
+		float: right;
+		@include max-width($screen-xs) {
+			float: none;
+			margin: 10px auto 0;
+		}
+		table {
+			width: 100px;
+			height: 80px;
+			margin: 0 auto;
+		}
+		a {
+			text-align: center;
+			display: inline-block;
+			width: 22px;
+			height: 22px;
+			margin: 0 5px;
+			font-size: 17px;
+		}
+	}
+
+	.copyright {
+		max-width: 380px;
+		p {
+			color: #AFAFAF;
+		}
+	}
+	.legal {
+		text-align: right;
+		@include max-width($screen-xs) {
+			text-align: left;
+			padding-top: 10px;
+		}
+		li {
+			padding: 0 2px;
+			&:after {
+				content: "/";
+				padding-left: 6px;
+			}
+			&:last-child {
+				&:after {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+
+/* Deals Flight List Section */
+.search-flight-section {
+	background: #FCFCFC;
+	padding: 180px 0 60px;
+	@include max-width($screen-md-min){
+		padding-top: 240px;
+	}
+	@include max-width($screen-sm-min){
+		padding-top: 30px;
+	}
+}
+
+/* Deals Filter */
+.deals-filter {
+    background: #ffffff;
+    z-index: $zindex-navbar;
+    transition: .3s background ease-in-out;
+    position: absolute;
+    width: 100%;
+    padding: 20px 0;
+	
+	.membership_message {
+		text-decoration: underline;
+	}
+	
+    @include max-width($screen-sm-min){
+    	position: relative!important;
+    	top: 0!important;
+    }
+	&.fixed {
+		background: #fafafa;
+		position: fixed;
+		top: 68px;
+		box-shadow: 2px 2px 1px rgba(128, 128, 128, 0.21);
+		/* .filter-title {
+			display: none;
+		} */
+	}
+	.filter-title {
+		font-weight: 400;
+		font-size: 16px;
+	}
+	// .typeahead {
+	//     @include max-width(768px){
+	//     	min-width: 100%;
+	//     }
+	// }
+	.price-dropdown {
+		max-width: 337px;
+		width: 337px;
+	    padding: 15px;
+	    @include max-width(768px){
+			max-width: 100%!important;
+		    width: 100%;
+		    left: 0!important;
+	    }
+	}
+}
+.price-inline-form {
+	width: 100%;
+	margin-bottom: 15px;
+	position: relative;
+	label {
+		margin: 0;
+		padding-right: 5px;
+	}
+	.form-group {
+		margin-bottom: 0;
+		.form-control[readonly] {
+			background: #ffffff;
+		}
+	}
+	rzslider {
+		margin: 20px 0 30px 0;
+		.rz-bubble {
+			bottom: -32px;
+		}
+	}
+}
+
+
+/* Select Aircraft page */
+.aircraft-box {
+	@include make-sm-column(4);
+	cursor: pointer;
+	margin-bottom: 15px;
+
+	article {
+		display: table;
+		width: 100%;
+		height: 330px;
+		background: #ffffff;
+		border: 1px solid darken($gray-lighter, 4%);
+		text-align: center;
+		padding: 15px;
+		box-shadow: inset 0px 0px 0px 5px transparent;
+		transition: .2s all ease-in-out;
+		> div {
+			display: table-cell;
+			height: 100%;
+			vertical-align: middle;
+		}
+		h1 {
+			margin: 0 0 10px;
+			color: #009fd2;
+		}
+
+		.arrow {
+			margin: 20px auto 0;
+			font-size: 20px;
+			@include size(20px, 20px);
+			color: #787878;
+		}
+
+		@include max-width($screen-md-max){
+			height: 250px;
+			h1 {
+				font-size: 24px;
+				margin-bottom: 5px;
+			}
+			p {
+				font-size: 14px;
+			}
+		}
+		&:hover {
+			box-shadow: inset 0px 0px 0px 5px $gray-lighter;
+			border: 1px solid $gray-lighter;
+		}
+
+	}
+}
+
+/* Settings page */
+.settings-section {
+	@include vpadding(50px, 80px);
+}
+.avatar-settings {
+	.btn {
+		padding: 16px 25px;
+	}
+	.file-name {
+		display: inline-block;
+		padding-left: 10px;
+	}
+}
+
+
+/* Contact page */
+.contact-column {
+	@include max-width($screen-sm-max) {
+		margin-bottom: 50px;
+	}
+	h4 {
+		margin-bottom: 20px;
+		font-weight: 300;
+	}
+	.form-group {
+		margin-bottom: 25px;
+	}
+	&.info {
+		@include min-width($screen-sm-max) {
+			padding-left: 50px;
+		}
+		ul {
+			margin-bottom: 20px;
+		}
+		article {
+			margin-bottom: 50px;
+		}
+	}
+}
+.hobomap {
+	height: 400px;
+}
+
+
+/* Set Alerts page */
+
+.alert-row {
+	display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+	-webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+	margin-left: -15px;
+    margin-right: -15px;
+	margin-bottom: 50px;
+}
+.alert-col {
+	width: 100%;
+	min-height: 1px;
+	padding: 0 15px;
+	margin-bottom: 30px;
+	position: relative;
+	z-index: 0;
+	min-height: 112px;
+	&:after {
+		content: "";
+		position: absolute;
+		background: #ffffff;
+		border: 1px solid darken($gray-lighter, 4%);
+		left: 15px;
+		top: 0;
+		height: 100%;
+		width: calc(100% - 32px);
+		z-index: -1;
+	}
+	@include min-width($screen-sm) {
+		// -webkit-box-flex: 0;
+		// -webkit-flex: 0 0 33.33333333%;
+		// -ms-flex: 0 0 33.33333333%;
+		// flex: 0 0 33.33333333%;
+		width: 33.33333333%;
+	}
+
+	.remove-alert-btn {
+		position: absolute;
+		right: 25px;
+		top:8px;
+	}
+
+	.alert-box {
+		padding: 25px;
+		p {
+			font-size: 18px;
+			margin: 0;
+			@include text-overflow();
+			width: 90%;
+			&.alert-orig {
+				&:before {
+					content: "";
+					margin-right: 5px;
+					opacity: .6;
+					background-image: url('/images/ico/orig-ico-gray.svg');
+					background-repeat: no-repeat;
+					background-size: 17px 11px;
+					background-position: 0 2px;
+					@include size(20px, 20px);
+					vertical-align: middle;
+					display: inline-block;
+				}
+			}
+			&.alert-dest {
+				&:before {
+					content: "";
+					margin-right: 5px;
+					opacity: .6;
+					background-image: url('/images/ico/dest-ico-gray.svg');
+					background-repeat: no-repeat;
+					background-size: 17px 11px;
+					background-position: 0 2px;
+					@include size(20px, 20px);
+					vertical-align: middle;
+					display: inline-block;
+				}
+			}
+			&.alert-message {
+				font-size: 12px;
+			}
+		}
+	}
+}
+
+.no-alerts, .no-flights {
+	font-size: 18px;
+	margin-bottom: 30px;
+}
+
+/* Hobo Squad page */
+
+.squad-header {
+	@include make-row();
+	margin-bottom: 45px;
+	form {
+		@include clearfix();
+	}
+	.form-control {
+		@include min-width($screen-lg) {
+			max-width: 400px;
+		}
+	}
+}
+
+.squad {
+	@include make-row();
+}
+
+.sqad-item {
+	@include make-md-column(3);
+	@include max-width($screen-sm-max) {
+		@include make-sm-column(6);
+	}
+	margin-bottom: 30px;
+	article {
+		position: relative;
+		display: table;
+		@include size(100%, 330px);
+		background: #fff;
+		border: 1px solid darken($gray-lighter, 4%);
+		padding: 15px;
+		> div {
+			display: table-cell;
+			vertical-align: middle;
+			max-width: 200px;
+			text-align: center;
+		}
+		&:hover {
+			.remove-squad-item {
+				opacity: 1;
+				visibility: visible;
+				i {
+					transform: scale(1);
+				}
+			}
+		}
+	}
+	.remove-squad-item {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		left: 0;
+		top: 0;
+		background: rgba(0, 0, 0, 0.29);
+		font-size: 68px;
+		color: #fff;
+		opacity: 0;
+		visibility: hidden;
+		i {
+			display: inline-block;
+			transform: scale(.5);
+			transition:all .2s ease-in-out;
+		}
+	}
+	.squad-img {
+		@include size(200px, 200px);
+		border-radius: 100%;
+		background-size: cover;
+		background-repeat: no-repeat;
+		margin: 0 auto;
+		@include max-width($screen-lg) {
+			@include size(150px, 150px);
+		}
+	}
+	.squad-add {
+		@include size(200px, 200px);
+		margin: 0 auto;
+		position: relative;
+		a {
+			background: #00ABE2;
+			@include size(110px, 110px);
+			position: absolute;
+			border-radius: 100%;
+			top: calc(50% - 55px);
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			color: #fff;
+			font-size: 55px;
+			padding-top: 2px;
+			i {vertical-align: middle;}
+			&:hover {
+				background: #FFC133;
+			}
+		}
+		@include max-width($screen-lg) {
+			@include size(150px, 150px);
+		}
+	}
+	.squad-name {
+		@include text-overflow;
+		min-height: 33px;
+		font-size: 20px;
+		margin-top: 20px;
+	}
+}
+
+.squad-message {
+	font-size: 22px;
+	text-align: center;
+	margin-top: 30px;
+	font-weight: bold;
+}
+
+
+
+/* joinHobojet  page */
+
+.packages {
+	display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 990px;
+	margin: 0 auto;
+	.package {
+		position: relative;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-direction: column;
+		flex-direction: column;
+		-webkit-align-items: stretch;
+		align-items: stretch;
+		text-align: center;
+		-webkit-flex: 0 1 33.333333%;
+		flex: 0 1 33.333333%;
+		margin: 25px 0;
+		background: #ffffff;
+		border: 1px solid darken($gray-lighter, 4%);
+		padding: 55px 60px 75px;
+		@include max-width($screen-lg) {
+			padding: 55px 40px 75px;
+		}
+		@include max-width($screen-md) {
+			padding: 55px 20px 40px;
+			margin: 15px 0;
+		}
+		@include max-width($screen-xs-max) {
+			-webkit-flex: 0 1 100%;
+			flex: 0 1 100%;
+		}
+		.package-price {
+			font-weight: 400;
+			color: #009FD2;
+			font-size: 64px;
+			line-height: 1;
+			sub,sup {font-size: 40%;}
+			sup {top: -25px;}
+			sub {bottom: auto;}
+			@include max-width($screen-md) {
+				font-size: 55px;
+			}
+		}
+		.package-free {
+			line-height: 1;
+			font-weight: 400;
+			font-size: 45px;
+			color: #009FD2;
+			padding-top: 4px;
+			span {
+				font-size: 22px;
+				display: block;
+			}
+			@include max-width($screen-md) {
+				font-size: 32px;
+			}
+		}
+		.package-list {
+			display: table;
+			min-height: 200px;
+			width: 100%;
+			@include max-width($screen-md) {
+				min-height: 155px;
+			}
+			ul {
+				padding: 50px 0;
+				display: table-cell;
+				height: 100%;
+				vertical-align: top;
+				//padding:50px 0;
+				@include max-width($screen-md) {
+					padding: 30px 0;
+					font-size: 12px;
+				}
+			}
+		}
+		button {
+			margin-top: auto;
+			&:disabled {
+				color: #009FD2;
+				opacity: 1;
+				cursor: default;
+			}
+		}
+		h2 {
+			margin: 0 0 30px;
+		}
+		&:first-child {
+			margin-right: -1px;
+		}
+		&:last-child {
+		    margin-left: -1px;
+		}
+
+		&.featured {
+			z-index: 10;
+		    margin: 0;
+		}
+	}
+}
+
+
+/* FAQ page */
+.faq {
+	@include make-row();
+	max-width: 870px;
+	margin: 0 auto;
+	li {
+		@include make-md-column(12);
+		border-bottom: 1px solid darken($gray-lighter, 4%);
+		margin-bottom: 30px;
+		article {
+			@include clearfix();
+			padding: 10px;
+			@include max-width($screen-xs) {
+				padding: 10px 0px 10px 10px;
+			}
+		}
+		.question {
+			position: relative;
+			font-weight: normal;
+			z-index: 0;
+			margin-bottom: 20px;
+			&:before {
+				content: "Q";
+				color: #F2F2F2;
+				font-size: 60px;
+				font-weight: 700;
+				position: absolute;
+				bottom: 50%;
+				left: -25px;
+				line-height: 0;
+				z-index: -1;
+			}
+		}
+		.answer {
+			position: relative;
+			z-index: 0;
+			margin-bottom: 20px;
+			&:before {
+				content: "A";
+				color: #F2F2F2;
+				font-size: 60px;
+				font-weight: 700;
+				position: absolute;
+				bottom: 50%;
+				left: -25px;
+				line-height: 0;
+				z-index: -1;
+			}
+		}
+	}
+}
+
+/* Terms and Conditions Page */
+.terms {
+	@include make-row();
+	max-width: 870px;
+	margin: 0 auto;
+	li {
+		@include make-md-column(12);
+		border-bottom: 1px solid darken($gray-lighter, 4%);
+		&:last-child {
+			border-bottom: none;
+		}
+		article {
+			@include clearfix();
+			padding: 20px 10px;
+			p {
+				margin: 0;
+				strong {
+					text-transform: uppercase;
+					padding-right: 5px;
+				}
+			}
+			@include max-width($screen-xs) {
+				padding: 10px 0px 10px 10px;
+			}
+		}
+	}
+}
+
+// Terms for ios webview
+.app-terms{
+	display: table;
+	padding: 25px;
+	@include size(100%, 100%);
+	max-width: 480px;
+	margin: 0 auto;
+	article {
+		height: 100%;
+		margin: 0 auto;
+		display: table-cell;
+		vertical-align: middle;
+		h5 {
+			font-weight: 600;
+			margin-bottom: 20px;
+			text-transform: uppercase;
+		}
+		ul {
+			font-size: 12px;
+			li {
+				line-height: 1.8;
+				margin-bottom: 10px;
+			}
+		}
+	}
+}
+
+// Web View for ios payment (membership)
+.single-package {
+	display: table;
+	padding: 25px;
+	@include size(100%, 100%);
+	max-width: 320px;
+	margin: 0 auto;
+	article {
+		height: 100%;
+		margin: 0 auto;
+		display: table-cell;
+		vertical-align: middle;
+		h3 {
+			font-weight: 300;
+		}
+		p {
+			font-size: 16px;
+			margin-bottom: 40px;
+		}
+		ul {
+			padding-left: 25px;
+			margin-bottom: 50px;
+			li {
+				line-height: 1.8;
+			}
+		}
+		.btn {
+			font-weight: 400;
+			//font-family: inherit;
+			//text-transform: uppercase;
+			font-size: 15px;
+			padding: 14px 40px;
+		}
+		.paypal-btn-wrap {
+			text-align: center;
+			margin-bottom: 15px;
+		}
+		.btn-paypall {
+			width: 100%;
+			margin: 0 auto;
+			outline: none;
+			transition:all .2s ease-in-out;
+			&:focus ,&:active, &:active:focus {
+				box-shadow: 0 3px 15px rgba(0,0,0,0.20);
+			}
+		}
+		.package-logo {
+			margin-bottom: 30px;
+		}
+	}
+}
+
+/* Standalone Details page Alerts from email */
+.details {
+	@include make-row();
+	max-width: 960px;
+	margin: 0 auto;
+	.flight-img {
+	    position: relative;
+	    margin-bottom: 15px;
+		img {
+			width: 100%;
+		}
+	}
+	article {
+		margin-bottom: 60px;
+		@include min-width($screen-lg) {
+			padding-left: 30px;
+		}
+
+	}
+	.flight-title {
+		margin: 0;
+		line-height: 1.1;
+		span {
+			font-size: 12px;
+		}
+	}
+	.route-title {
+		margin: 0 0 40px;
+		line-height: 1.1;
+		span {
+			font-size: 12px;
+		}
+	}
+	.flight-price {
+		margin-bottom: 35px;
+		h1 {
+			margin: 0;
+		}
+	}
+	.flight-info {
+		table {
+			width: 100%;
+			margin-bottom: -20px;
+			td {
+				padding-bottom: 25px
+			}
+		}
+	}
+	.book-now {
+		text-align: right;
+	}
+}
+.route-map {
+	height: 450px;
+}
+
+// 404 Page
+.error-404{
+	display: table;
+	padding: 25px;
+	@include size(100%, 100%);
+	max-width: 480px;
+	margin: 0 auto;
+	article {
+		text-align: center;
+		height: 100%;
+		margin: 0 auto;
+		display: table-cell;
+		vertical-align: middle;
+		img {
+			display: inline-block;
+			margin-bottom: 20px;
+		}
+		h1 {
+			font-size: 120px;
+			margin: 0;
+			font-family: 'Montserrat', sans-serif;
+		}
+		p {
+			font-size: 20px;
+			margin-bottom: 60px;
+		}
+
+		a {
+			color: #535353;
+			font-size: 15px;
+			@include font-montserrat;
+			display: inline-block;
+			padding-left: 10px;
+			position: relative;
+			&:before {
+				@include ti;
+				position: absolute;
+				content: "\e629";
+				font-size: 10px;
+				line-height: 28px;
+				transform: translateX(-20px);
+				transition: all .2s ease-in-out;
+			}
+			&:hover {
+				&:before {
+					transform: translateX(-25px);
+				}
+			}
+		}
+	}
+}

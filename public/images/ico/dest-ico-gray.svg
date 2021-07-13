@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="17px" height="11px" viewBox="0 0 17 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.3 (16044) - http://www.bohemiancoding.com/sketch -->
+    <title>Line + Fill 1 + Fill 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="HoboJet_Homepage" sketch:type="MSArtboardGroup" transform="translate(-342.000000, -1472.000000)">
+            <g id="Featured-Deals" sketch:type="MSLayerGroup" transform="translate(-327.000000, 509.000000)">
+                <g id="Photo3" transform="translate(462.000000, 781.000000)" sketch:type="MSShapeGroup">
+                    <g id="Line-+-Fill-1-+-Fill-2" transform="translate(207.000000, 182.000000)">
+                        <path d="M1.90775626,10 L15.9077563,10" id="Line" stroke="#535353" stroke-width="2" stroke-linecap="square"></path>
+                        <g id="Fill-1-+-Fill-2" fill="#535353">
+                            <path d="M10.0515405,4.30571831 L5.76670472,0.322596961 L5.01849322,0.725782165 L6.19575781,4.25428985 C4.62045614,4.24848184 1.73333045,4.24713415 1.2111299,4.23844511 C0.763585852,4.23139997 3.57725165,5.77050755 4.30138415,5.9025307 C4.30138415,5.9025307 10.1882288,6.03012421 12.7958761,6.07114632 C13.4658706,6.08107908 14.1371095,6.09146987 14.8080994,6.10176906 C15.2558923,6.10890581 16.3114922,5.72710395 16.3547446,5.23964002 C16.3951506,4.79062695 15.4146291,4.38900627 14.9647167,4.38227724 C13.3268139,4.35698931 11.6891943,4.33091464 10.0515405,4.30571831 L10.0515405,4.30571831 Z" id="Fill-1"></path>
+                            <path d="M1.08561524,1.99041438 L0.539652363,2.23491689 L1.13793103,3.94926475 L2.90122022,3.94408649 L1.08561524,1.99041438 L1.08561524,1.99041438 L1.08561524,1.99041438 Z" id="Fill-2"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

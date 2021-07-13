@@ -1,0 +1,20 @@
+<div class="page-header clearfix">
+	<h2 class="col-md-4">Aircraft images</h2>
+	<div class="lead pull-right p-t-20">
+		<button class="btn btn-primary pull-right" ngf-select="upload($file)">Add image</button>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-6 col-md-4" ng-repeat="image in images">
+		<div class="thumbnail">
+			<img ng-src="{{image.image}}">
+			<div class="caption text-right">
+				<button class="btn btn-primary"  ng-click="setDefault($index, image)" >
+					<i ng-if="image.default == 1" class="fa fa-bookmark"></i>
+					<i ng-if="image.default != 1" class="fa fa-bookmark-o"></i>
+				</button>
+				<button class="btn btn-primary" ng-click="delete($index, image)"><i class="fa fa-trash-o"></i></button>
+			</div>
+		</div>
+	</div>
+</div>

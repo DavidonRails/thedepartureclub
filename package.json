@@ -1,0 +1,37 @@
+{
+  "private": true,
+  "scripts": {
+    "preinstall": "npx npm-force-resolutions"
+  },
+  "resolutions": {
+    "graceful-fs": "4.2.3"
+  },
+  "devDependencies": {
+    "babelify": "^6.3.0",
+    "bower": "^1.7.7",
+    "browserify": "^11.2.0",
+    "fb-flo": "^0.4.0",
+    "gulp": "^3.8.8",
+    "gulp-angular-templatecache": "^1.8.0",
+    "gulp-babel": "^5.2.1",
+    "gulp-clean-css": "^2.0.3",
+    "gulp-concat": "^2.6.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-ng-annotate": "^1.1.0",
+    "gulp-sass": "^2.0.4",
+    "gulp-shell": "^0.5.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-util": "^3.0.6",
+    "lodash.assign": "^3.2.0",
+    "node-sass": "^3.4.2",
+    "run-sequence": "^1.1.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.4.0"
+  },
+  "dependencies": {
+    "gulp-inline-css": "^3.1.0",
+    "stripe": "^8.68.0"
+  }
+}

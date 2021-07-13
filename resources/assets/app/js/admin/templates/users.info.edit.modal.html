@@ -1,0 +1,73 @@
+<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" ng-show="title">
+				<button type="button" class="close" aria-label="Close" ng-click="$hide()"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" ng-bind="title"></h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal">
+
+					<div class="row"> 
+
+						<div class="form-group">
+							<label class="col-md-4 control-label text-right">Status</label>
+							<div class="col-md-6">
+								<select class="form-control" ng-model="form.status" ng-options="operator.val for operator in options.status"></select>
+								<span ng-message-exp="errors.status" class="help-inline ng-binding" ng-bind="errors.status"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label text-right">Role</label>
+							<div class="col-md-6">
+								<select class="form-control" ng-model="form.role" ng-options="operator.val for operator in options.roles"></select>
+								<span ng-message-exp="errors.role" class="help-inline ng-binding" ng-bind="errors.role"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label text-right">Package</label>
+							<div class="col-md-6">
+								<select class="form-control" ng-model="form.package" ng-options="package.val for package in options.packages"></select>
+								<span ng-message-exp="errors.role" class="help-inline ng-binding" ng-bind="errors.role"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label text-right">First Name</label>
+							<div class="col-md-6">
+								<input class="form-control" ng-model="form.firstname">
+								<span ng-message-exp="errors.first_name" class="help-inline ng-binding" ng-bind="errors.first_name"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label text-right">Last Name</label>
+							<div class="col-md-6">
+								<input class="form-control" ng-model="form.lastname">
+								<span ng-message-exp="errors.last_name" class="help-inline ng-binding" ng-bind="errors.last_name"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label text-right">Email</label>
+							<div class="col-md-6">
+								<input class="form-control" ng-model="form.email">
+								<span ng-message-exp="errors.email" class="help-inline ng-binding" ng-bind="errors.email"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label text-right">Password</label>
+							<div class="col-md-6">
+								<input class="form-control" ng-model="form.password">
+							</div>
+						</div>
+
+					</div>
+
+				</form>
+			</div>
+			<div class="modal-footer">
+				<span ng-message-exp="errors.edit_user" class="help-inline ng-binding" ng-bind="errors.edit_user"></span>
+				<button type="button" class="btn btn-default" ng-click="save(form)">Save</button>
+				<button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

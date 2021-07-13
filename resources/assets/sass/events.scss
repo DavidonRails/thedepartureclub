@@ -1,0 +1,31 @@
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.img-div {
+    //  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRR9gjbb1IvWEjU1BtGTSkWPWLFWbpWCpZUZ6Djme17EQFmCVHY&usqp=CAU');
+    background-size: cover !important;
+    width: 200px;
+    height: 100%;
+    background-position: center !important;
+}
+
+.panel-text {
+    padding-bottom: 35px;
+    min-height: 150px;
+}
+
+.panel-content {
+    width: 100%;
+}
+
+.panel-footer {
+    background-color: none; 
+}
+
+.panel-title {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125)
+}
